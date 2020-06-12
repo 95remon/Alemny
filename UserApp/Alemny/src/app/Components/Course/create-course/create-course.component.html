@@ -1,0 +1,96 @@
+
+  <form [formGroup]="CreateCourse" (ngSubmit)="createCourse()" class="mx-auto" style="width: 50%;">
+    <div class="form-horizontal">
+        <div class="mx-auto d-flex justify-content-center ">
+            <h3 class=" " style="margin-left: 10px;">Create Course </h3>
+
+            <i class="fab fa-amazon  " style="color:#ca9819;font-size:37px;margin-left: 10px; "></i>
+        </div>
+        <hr />
+        <!-- <hr style="background-color: #f1c75f;"/> -->
+
+        <div class="form-group">
+            <label for="">Course Code</label>
+            <input [(ngModel)]="course.Code" type="text" class="form-control" formControlName="Code">
+
+            <div [hidden]="CreateCourse.controls['Code'].valid || CreateCourse.controls['Code'].untouched"
+                class="alert alert-warning">
+                UserName is required and must be more Than 3 Chars
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="">Course Name</label>
+            <input [(ngModel)]="course.Name" type="text" class="form-control" formControlName="Name">
+
+            <div [hidden]="CreateCourse.controls['Name'].valid || CreateCourse.controls['Name'].untouched"
+                class="alert alert-warning">
+                UserName is required and must be more Than 3 Chars
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Description </label>
+            <input [(ngModel)]="course.Description" type="text" class="form-control" formControlName="Desc">
+
+            <div [hidden]="CreateCourse.controls['Desc'].valid || CreateCourse.controls['Desc'].untouched"
+                class="alert alert-warning">
+                UserName is required and must be more Than 3 Chars
+            </div>
+        </div>
+
+    
+
+        <div class="form-group">
+            <label for="">Class</label>
+            <input [(ngModel)]="course.StageID" type="number" class="form-control" formControlName="StageID">
+
+            <div [hidden]="CreateCourse.controls['StageID'].valid || CreateCourse.controls['StageID'].untouched"
+                class="alert alert-warning">
+                Password is required and must be more Than 6 Chars
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="">Term</label>
+            <input [(ngModel)]="course.Term" type="number" class="form-control"
+                formControlName="Term">
+
+            <div [hidden]="CreateCourse.controls['Term'].valid || CreateCourse.controls['Term'].untouched"
+                class="alert alert-warning">
+                not matched
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Max Degree</label>
+            <input [(ngModel)]="course.MaxDegree" type="number" class="form-control"
+                formControlName="MaxDegree">
+
+            <div [hidden]="CreateCourse.controls['MaxDegree'].valid || CreateCourse.controls['MaxDegree'].untouched"
+                class="alert alert-warning">
+                not matched
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Min Degree</label>
+            <input [(ngModel)]="course.MinDegree" type="number" class="form-control"
+                formControlName="MinDegree">
+
+            <div [hidden]="CreateCourse.controls['MinDegree'].valid || CreateCourse.controls['MinDegree'].untouched"
+                class="alert alert-warning">
+                not matched
+            </div>
+        </div>
+
+        
+
+        <button class="btn mx-auto" style="background-color: #ca9819;" [disabled]="!CreateCourse.valid"
+            type="submit">Login</button>
+
+    </div>
+</form>
