@@ -275,5 +275,5 @@ D:\ITI-3Month\Final Project\LastUpdate_12-6\Online Education\Online Education\ob
 D:\ITI-3Month\Final Project\LastUpdate_12-6\Online Education\Online Education\obj\Debug\Online Education.csproj.CopyComplete
 D:\ITI-3Month\Final Project\LastUpdate_12-6\Online Education\Online Education\obj\Debug\Online Education.dll
 D:\ITI-3Month\Final Project\LastUpdate_12-6\Online Education\Online Education\obj\Debug\Online Education.pdb
-D:\ITI-3Month\Final Project\LastUpdate_12-6\Online Education\Online Education\obj\Debug\Online_Education.Migrations.bb.resources
+D:\ITI-3Month\Final Project\LastUpdate_12-6\Online Education\Online Education\obj\Debug\Online_Education.Migrations.first.resources
 D:\ITI-3Month\Final Project\LastUpdate_12-6\Online Education\Online Education\obj\Debug\Online Education.csproj.GenerateResource.cache

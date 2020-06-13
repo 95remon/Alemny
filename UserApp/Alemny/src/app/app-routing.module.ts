@@ -9,8 +9,8 @@ import { SearchCourseResultsComponent } from './Components/search-course-results
 const routes: Routes = [
   { path:'signin' , component:SignInComponent },
   { path:'signup' , component:SignUpComponent },
-  {path : 'createcourse' , component : CreateCourseComponent},
-  {path:'courses/:StgID/:Sem/:Subject',component:SearchCourseResultsComponent},
+  { path : 'createcourse' , component : CreateCourseComponent},
+  { path:'courses/:StgID/:Sem/:Subject',component:SearchCourseResultsComponent},
 
 
 ];

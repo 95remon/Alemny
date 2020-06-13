@@ -3,10 +3,47 @@ namespace Online_Education.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class bb : DbMigration
+    public partial class first : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Chapters",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Description = c.String(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.Lessons",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Description = c.String(),
+                        Chapter_ID = c.Int(),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.Chapters", t => t.Chapter_ID)
+                .Index(t => t.Chapter_ID);
+            
+            CreateTable(
+                "dbo.Materials",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Description = c.String(),
+                        Type = c.String(),
+                        LessonID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.Lessons", t => t.LessonID, cascadeDelete: true)
+                .Index(t => t.LessonID);
+            
             CreateTable(
                 "dbo.Choices",
                 c => new
@@ -239,6 +276,8 @@ namespace Online_Education.Migrations
             DropForeignKey("dbo.Enrolls", "StudentID", "dbo.AspNetUsers");
             DropForeignKey("dbo.Enrolls", "CourseCode", "dbo.Courses");
             DropForeignKey("dbo.Choices", "QuestionID", "dbo.MCQs");
+            DropForeignKey("dbo.Materials", "LessonID", "dbo.Lessons");
+            DropForeignKey("dbo.Lessons", "Chapter_ID", "dbo.Chapters");
             DropIndex("dbo.TrueFalseQuestions", new[] { "QuestionID" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.ExamQuestions", new[] { "QuestionID" });
@@ -259,6 +298,8 @@ namespace Online_Education.Migrations
             DropIndex("dbo.StudentAnswerInExams", new[] { "StudentID" });
             DropIndex("dbo.MCQs", new[] { "QuestionID" });
             DropIndex("dbo.Choices", new[] { "QuestionID" });
+            DropIndex("dbo.Materials", new[] { "LessonID" });
+            DropIndex("dbo.Lessons", new[] { "Chapter_ID" });
             DropTable("dbo.TrueFalseQuestions");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.ExamQuestions");
@@ -275,6 +316,9 @@ namespace Online_Education.Migrations
             DropTable("dbo.Questions");
             DropTable("dbo.MCQs");
             DropTable("dbo.Choices");
+            DropTable("dbo.Materials");
+            DropTable("dbo.Lessons");
+            DropTable("dbo.Chapters");
         }
     }
 }
