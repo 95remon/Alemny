@@ -18,8 +18,8 @@ export class SignInComponent implements OnInit {
   login(userName,password){
     this.userService.login(userName,password).subscribe((data : any)=>{
      localStorage.setItem('userToken',data.access_token);
-     this.router.navigate(['/index']);
-     //console.log( localStorage.getItem('userToken'))
+    //  this.router.navigate(['/index']);
+     console.log( localStorage.getItem('userToken'))
    },
    (err : HttpErrorResponse)=>{
      

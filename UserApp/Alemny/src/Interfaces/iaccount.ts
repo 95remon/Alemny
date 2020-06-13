@@ -1,6 +1,9 @@
 export interface IAccount {
+  Type:string;
   Name: string;
   UserName: string;
+  Image:string;
+  Level:string;
   Email: string;
   Password: string;
   ConfirmPassword: string;
