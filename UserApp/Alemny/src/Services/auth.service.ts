@@ -13,28 +13,38 @@ export class AuthuserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  registerUser(user:IAccount)
+  
+
+  registerUser(user:IAccount,image:File):Observable<IAccount>
   {
-    const httpOptions =  new HttpHeaders({
-      'Content-Type': 'application/json',
-       'Accept': ' /'
-        });
-    return this.httpClient.post(`${environment.ApiURl}/Account`, user, { headers: httpOptions });
+    // const httpOptions =  new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //    'Accept': ' /'
+    //     });
+    // return this.httpClient.post(`${environment.ApiURl}/Account`, user, { headers: httpOptions });
+
+    const Formdata = new FormData();
+    Formdata.append('Type',user.Type);
+    Formdata.append('Name',user.Name);
+    Formdata.append('UserName',user.UserName);
+    Formdata.append('Email',user.Email);
+
+    Formdata.append('Level',user.Level);
+    Formdata.append('Password',user.Password);
+    Formdata.append('ConfirmPassword',user.ConfirmPassword);
+    Formdata.append('Address',user.Address);
+    Formdata.append('PhoneNumber',user.PhoneNumber);
+    Formdata.append('Gender',user.Gender);
+    
+    Formdata.append("Image",image);
+
+
+    return this.httpClient.post<IAccount>(`${environment.ApiURl}/Account`,Formdata);
+
+    
   }
 
-  /*registerUser(user: User,roles : string[]) {
-    const body = {
-      Name: user.Name,
-      Email: user.Email,
-      Password: user.Password,
-      ConfirmPassword: user.ConfirmPassword,
-      MobileNumber: user.MobileNumber,
-      Address : user.Address, 
-      Roles : roles
-    }
-    var reqHeader = new HttpHeaders({'No-Auth':'True'});
-    //return this.HttpClient.post(this.rootUrl + '/api/User/Register', body,{headers : reqHeader});
-  }*/
+  
 
   login(username: string, password: string): Observable<TokenParam> {
     var headerForTokenApi = new HttpHeaders({

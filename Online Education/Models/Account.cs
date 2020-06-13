@@ -9,15 +9,35 @@ namespace Online_Education.Models
     public enum Gender {
         Male ,
         Female
-    }
-
+    };
+    public enum UserType
+    {
+        Instructor,
+        Student
+    };
+    public enum Level
+    {
+        First,
+        Second,
+        Third,
+        Forth,
+    };
     public class Account
     {
+        [Required]
+        public UserType Type { get; set; }
+
         [Required]
         public string Name { get; set; }
 
         [Required]
         public string UserName { get; set; }
+
+        [Required]
+        public string Image { get; set; }
+
+        [Required]
+        public Level Level { get; set; }
 
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }

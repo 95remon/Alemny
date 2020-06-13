@@ -129,10 +129,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChaptersController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
-    <Compile Include="Controllers\LessonsController.cs" />
-    <Compile Include="Migrations\202006131900205_first.cs" />
-    <Compile Include="Migrations\202006131900205_first.Designer.cs">
-      <DependentUpon>202006131900205_first.cs</DependentUpon>
+    <Compile Include="Migrations\202006132112497_s.cs" />
+    <Compile Include="Migrations\202006132112497_s.Designer.cs">
+      <DependentUpon>202006132112497_s.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -165,11 +164,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Images\" />
     <Folder Include="UserApp\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006131900205_first.resx">
-      <DependentUpon>202006131900205_first.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006132112497_s.resx">
+      <DependentUpon>202006132112497_s.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
