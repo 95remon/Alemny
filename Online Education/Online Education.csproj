@@ -129,6 +129,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChaptersController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\LessonsController.cs" />
     <Compile Include="Migrations\202006132112497_s.cs" />
     <Compile Include="Migrations\202006132112497_s.Designer.cs">
       <DependentUpon>202006132112497_s.cs</DependentUpon>
