@@ -32,7 +32,7 @@
 
         <div class="form-group">
             <label for="">Description </label>
-            <input [(ngModel)]="course.Description" type="text" class="form-control" formControlName="Desc">
+            <input [(ngModel)]="course.Description" type="text" class="form-control" formControlName="Desc" maxlength="126">
 
             <div [hidden]="CreateCourse.controls['Desc'].valid || CreateCourse.controls['Desc'].untouched"
                 class="alert alert-warning">
@@ -40,30 +40,6 @@
             </div>
         </div>
 
-    
-
-        <div class="form-group">
-            <label for="">Class</label>
-            <input [(ngModel)]="course.StageID" type="number" class="form-control" formControlName="StageID">
-
-            <div [hidden]="CreateCourse.controls['StageID'].valid || CreateCourse.controls['StageID'].untouched"
-                class="alert alert-warning">
-                Password is required and must be more Than 6 Chars
-            </div>
-        </div>
-
-
-
-        <div class="form-group">
-            <label for="">Term</label>
-            <input [(ngModel)]="course.Term" type="number" class="form-control"
-                formControlName="Term">
-
-            <div [hidden]="CreateCourse.controls['Term'].valid || CreateCourse.controls['Term'].untouched"
-                class="alert alert-warning">
-                not matched
-            </div>
-        </div>
 
         <div class="form-group">
             <label for="">Max Degree</label>
@@ -89,8 +65,43 @@
 
         
 
-        <button class="btn mx-auto" style="background-color: #ca9819;" [disabled]="!CreateCourse.valid"
-            type="submit">Login</button>
+        <div class="form-group">
+            <label for="">Semester</label>
+           
+            <select   class="form-control" [(ngModel)]="course.Semester"  formControlName="Semester"> 
+              <option value="1">
+                
+                     First
+             </option>
+
+             <option value="2"> 
+                
+                Second
+        </option>
+           </select> 
+   
+        </div>
+
+        <div class="form-group">
+            <label for="">Stage</label>
+           
+            <select   class="form-control" [(ngModel)]="course.StageID" formControlName="StageID" > 
+              <option *ngFor="let Stage of Stages" [value]="Stage.id">
+                
+                      {{Stage.name}}
+             </option>
+           </select> 
+   
+        </div>
+        <div class="form-group">
+            <label for="">Course Image</label><br>
+            <input type="file" (change)="readURL($event);">
+            
+       </div>
+       <!-- -->
+
+        <button class="btn mx-auto float-right" style="background-color: #ca9819;" [disabled]="!CreateCourse.valid"
+            type="submit">Create</button>
 
     </div>
 </form>

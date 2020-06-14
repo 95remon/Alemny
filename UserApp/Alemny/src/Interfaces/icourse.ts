@@ -8,10 +8,11 @@ export interface ICourse {
   MaxDegree: number;
 
   MinDegree: number;
+  Image:string;
 
-  StageID : string;
+  StageID : number;
 
-  Term : number;
+  Semester : number;
 
 
 }

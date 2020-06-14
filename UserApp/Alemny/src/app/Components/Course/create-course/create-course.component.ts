@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ICourse } from 'src/Interfaces/icourse';
+
+import { Istage } from 'src/Interfaces/istage';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CourseService } from 'src/Services/course.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-course',
@@ -11,22 +15,40 @@ import { CourseService } from 'src/Services/course.service';
 export class CreateCourseComponent implements OnInit {
 
   course: ICourse;
-
+  courseImage:File;
+  Stages:Istage[];
+  
 
   CreateCourse: FormGroup;
 
   constructor(  private courseSer : CourseService
-    ,private FB: FormBuilder) { 
+    ,private FB: FormBuilder, private _Router:Router) { 
+      
+  this.Stages=[{id:1,name:'Stage1'},{id:2,name:'Stage2'},{id:3,name:'Stage3'},{id:4,name:'Stage4'},{id:5,name:'Stage5'}
+  ,{id:6,name:'Stage6'},{id:7,name:'Stage7'},{id:8,name:'Stage8'}];
+
     this.course = {
       Code:'',
       Name: '',
       Description:'',
       MaxDegree: 0,
       MinDegree: 0,
-      StageID : '',
-      Term : 1
+      StageID : 0,
+      Semester : 0,
+      Image:''
 
     };
+   
+  }
+  readURL(event): void 
+  {
+   
+    
+    if (event.target.files && event.target.files[0])
+     {
+      this.courseImage= event.target.files[0];
+    }
+  
   }
 
   ngOnInit(): void {
@@ -36,16 +58,18 @@ export class CreateCourseComponent implements OnInit {
       Desc: ['', [Validators.required, Validators.minLength(3)]],
       MaxDegree: ['', [Validators.required]],
       MinDegree: ['', [Validators.required]],
-      Term: ['', [Validators.required, Validators.minLength(6)]],
-      StageID: ['', [Validators.required, Validators.minLength(3)]],
+      Semester: ['', [Validators.required]],
+      StageID: ['', [Validators.required]],
      
     });
   }
 
   createCourse() {
-    this.courseSer.createCourse(this.course).subscribe(
+    
+    this.courseSer.createCourse(this.course,this.courseImage).subscribe(
       (data: any) => {
-        console.log(data);
+        alert(data)
+        this._Router.navigate(["/courses"]);
       },
       (err) => console.log(err)
     );

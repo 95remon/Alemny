@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ICourse } from 'src/Interfaces/icourse';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,10 +10,85 @@ import { environment } from 'src/environments/environment';
 export class CourseService {
   constructor(private httpClient: HttpClient) {}
 
-  createCourse(course: ICourse) {
-    return this.httpClient.post(`${environment.ApiURl}/Courses`, course);
+  createCourse(course: ICourse,CourseImage:File):Observable<ICourse>{
+    const Coursefd = new FormData();
+    Coursefd.append('Code',course.Code);
+    Coursefd.append('Name',course.Name);
+    Coursefd.append('Description',course.Description);
+    Coursefd.append('MaxDegree',course.MaxDegree.toString());
+    Coursefd.append('MinDegree',course.MinDegree.toString());
+    Coursefd.append('StageID',course.StageID.toString());
+    Coursefd.append('Semester',course.Semester.toString());
+    Coursefd.append("Image",CourseImage);
+
+
+
+
+    return this.httpClient.post<ICourse>(`${environment.ApiURl}/Courses`,Coursefd);
   }
   searchCourse(StgID : number,Sem : number, Subject : string){
     return this.httpClient.get(`${environment.ApiURl}/Courses/${StgID}/${Sem}/${Subject}`);
   }
+
+  GetAllCourses():Observable<ICourse[]>
+  {
+    
+    // if(sessionStorage.getItem('access_token')!=null)
+    // {
+    //   var httpOptions1 =  new HttpHeaders({ 'Authorization':'Bearer '+sessionStorage.getItem('access_token')});
+    
+    // } 
+    
+  
+   
+     return this.httpClient.get<ICourse[]>(`${environment.ApiURl}/courses`);//,{headers:httpOptions1});
+  }
+
+  GetCourseByCode(courseCode:string):any
+  {
+   
+      // if(sessionStorage.getItem('access_token') !=null)
+      // {
+      //   var httpOptions1 =  new HttpHeaders({ 'Authorization':'Bearer '+sessionStorage.getItem('access_token')});
+      
+      // }   
+      return this.httpClient.get(`${environment.ApiURl}/Courses/${courseCode}`)//,{headers:httpOptions1});
+      
+    
+  }
+
+
+  updateCourse(course:ICourse,CourseImage:File):Observable<ICourse>
+{
+  // if(sessionStorage.getItem('access_token') !=null)
+  //   {
+  //     var httpOptions1 =  new HttpHeaders({ 'Authorization':'Bearer '+sessionStorage.getItem('access_token')});
+    
+  //   }   
+  const Coursefd = new FormData();
+  Coursefd.append('Code',course.Code);
+  Coursefd.append('Name',course.Name);
+  Coursefd.append('Description',course.Description);
+  Coursefd.append('MaxDegree',course.MaxDegree.toString());
+  Coursefd.append('MinDegree',course.MinDegree.toString());
+  Coursefd.append('StageID',course.StageID.toString());
+  Coursefd.append('Semester',course.Semester.toString());
+  Coursefd.append("Image",CourseImage);
+
+  return this.httpClient.put<ICourse>(`${environment.ApiURl}/Courses/${course.Code}`,Coursefd)//,{headers:httpOptions1})
+
+}
+
+
+DeleteCourse(CourseCode:string)
+{
+  // if(sessionStorage.getItem('access_token') !=null)
+  //   {
+  //     var httpOptions1 =  new HttpHeaders({ 'Authorization':'Bearer '+sessionStorage.getItem('access_token')});
+    
+  //   } 
+  return this.httpClient.delete<ICourse>(`${environment.ApiURl}/Courses/${CourseCode}`);//,{headers:httpOptions1})
+
+}
+
 }

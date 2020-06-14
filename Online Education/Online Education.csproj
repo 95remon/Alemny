@@ -128,9 +128,21 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
-    <Compile Include="Migrations\202006112301045_bb.cs" />
-    <Compile Include="Migrations\202006112301045_bb.Designer.cs">
-      <DependentUpon>202006112301045_bb.cs</DependentUpon>
+    <Compile Include="Migrations\202006122224243_sig1.cs" />
+    <Compile Include="Migrations\202006122224243_sig1.Designer.cs">
+      <DependentUpon>202006122224243_sig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006130136113_sig7.cs" />
+    <Compile Include="Migrations\202006130136113_sig7.Designer.cs">
+      <DependentUpon>202006130136113_sig7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006130401437_sig5.cs" />
+    <Compile Include="Migrations\202006130401437_sig5.Designer.cs">
+      <DependentUpon>202006130401437_sig5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006130548227_sig3.cs" />
+    <Compile Include="Migrations\202006130548227_sig3.Designer.cs">
+      <DependentUpon>202006130548227_sig3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -163,11 +175,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Images\" />
     <Folder Include="UserApp\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006112301045_bb.resx">
-      <DependentUpon>202006112301045_bb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006122224243_sig1.resx">
+      <DependentUpon>202006122224243_sig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006130136113_sig7.resx">
+      <DependentUpon>202006130136113_sig7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006130401437_sig5.resx">
+      <DependentUpon>202006130401437_sig5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006130548227_sig3.resx">
+      <DependentUpon>202006130548227_sig3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
