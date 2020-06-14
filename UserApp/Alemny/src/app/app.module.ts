@@ -12,6 +12,7 @@ import { CreateCourseComponent } from './Components/Course/create-course/create-
 import { SearchCourseResultsComponent } from './Components/search-course-results/search-course-results.component';
 import { TeachersCourseComponent } from './Components/Course/teachers-course/teachers-course.component';
 
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,8 @@ import { TeachersCourseComponent } from './Components/Course/teachers-course/tea
     SignUpComponent,
     CreateCourseComponent,
     SearchCourseResultsComponent,
-    TeachersCourseComponent
-    
+    TeachersCourseComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

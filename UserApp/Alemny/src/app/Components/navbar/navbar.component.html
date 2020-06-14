@@ -1,0 +1,53 @@
+
+
+<nav class="navbar fixed-top  navbar-expand-lg  navbar-dark" style=" background-color: #232f3e; margin-bottom: 120px;"> 
+         
+    <!--logo-->
+    <a class ="navbar-brand " style=" margin-right: 0;">
+        <i class="fab fa-neos gold" style="font-size: 30px;" ></i>
+    </a>  
+    <a class="navbar-brand" style="margin-left: 2px; " >
+      <h2 class=" d-inline">aFhem</h2>
+    </a>
+
+    <button class="navbar-toggler ml-auto" type="button"  data-toggle="collapse"
+       data-target="#CollabseNavbar" >
+    <span class="navbar-toggler-icon"></span>
+    </button> 
+
+     <div class="collapse navbar-collapse  d-lg-flex justify-content-end" id="CollabseNavbar" >
+    <ul class="navbar-nav " style="width: 65% ;display: flex; justify-content: space-around;">
+
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="/Home" data-toggle="Home" title="Home">
+          <i class="fas fa-house-user"></i>
+          home
+        </a>
+    </li>
+
+  <script>$(document).ready(function(){$('[data-toggle="Home"]').tooltip();});  </script>
+      <li class="nav-item"  >
+        <a class="nav-link" routerLink="/Products"  data-toggle="Courses" title="Courses">
+            <i class="fas fa-tags "></i> Courses</a>
+      </li>
+
+      
+
+      <li class="nav-item"  >
+        <a class="nav-link" routerLink="/Products"  data-toggle="Courses" title="Courses">
+            <i class="fas fa-tags "></i> Courses</a>
+      </li>
+
+      <li class="nav-item"  >
+        <a class="nav-link" routerLink="/Products"  data-toggle="Courses" title="Courses">
+            <i class="fas fa-tags "></i> Courses</a>
+      </li>
+
+      <li  class="nav-item" >
+        <a  [routerLink]="['/signin']" class="nav-link" href="#" data-toggle="Login" title="Login">
+          Login <i class="fas fa-sign-in-alt gold " ></i>          
+        </a>
+        </li>
+</ul>
+</div>
+</nav>

@@ -1,23 +1,33 @@
+
+
 <!-- {{LoginForm.value|json}} -->
 <!-- <br>
   <h2>Account</h2> -->
-<form [formGroup]="LoginForm" (ngSubmit)="reg()" class="mx-auto" style="width: 50%;">
+
+<form [formGroup]="LoginForm" (ngSubmit)="reg()" class="mx-auto" style="width:45%;">
     <div class="form-horizontal">
         <div class="mx-auto d-flex justify-content-center ">
             <h3 class=" " style="margin-left: 10px;">Register </h3>
-
-            <i class="fab fa-amazon  " style="color:#ca9819;font-size:37px;margin-left: 10px; "></i>
         </div>
         <hr />
         <!-- <hr style="background-color: #f1c75f;"/> -->
 
+        <div class="form-group">
+            <label for="">Instructor or Student</label>
+            
+            <select [(ngModel)]="account.Type" class="form-control" formControlName="Type">
+                <option value="Instructor" selected>Instructor</option>
+                <option value="Student">Student</option>
+            </select>
+
+        </div>
         <div class="form-group">
             <label for="">Name</label>
             <input [(ngModel)]="account.Name" type="text" class="form-control" formControlName="Name">
 
             <div [hidden]="LoginForm.controls['Name'].valid || LoginForm.controls['Name'].untouched"
                 class="alert alert-warning">
-                UserName is required and must be more Than 3 Chars
+                Your Name is required and must be more Than 3 Chars
             </div>
         </div>
 
@@ -31,6 +41,26 @@
             </div>
         </div>
 
+        <div *ngIf="account.Type=='Instructor'" class="form-group">
+            <label for="">Image</label>
+            <input (change)="readURL($event);"
+            type="file" class="form-control" formControlName="Image">
+        </div>
+
+        
+        <div *ngIf="account.Type=='Student'" class="form-group">
+         
+            <label for="">Student Level</label>
+            
+            <select [(ngModel)]="account.Level" class="form-control" formControlName="Level">
+                <option value="First" selected>First</option>
+                <option value="Second">Second</option>
+                <option value="Third">Third</option>
+                <option value="Forth">Forth</option>
+                
+            </select>
+
+        </div>
         <div class="form-group">
             <label for="">Email</label>
             <input [(ngModel)]="account.Email" type="email" class="form-control"
@@ -38,7 +68,7 @@
 
             <div [hidden]="LoginForm.controls['Email'].valid || LoginForm.controls['Email'].untouched"
                 class="alert alert-warning">
-                not matched
+             Your email must be in Format 'user@user.com'
             </div>
         </div>
 
@@ -61,18 +91,19 @@
 
             <div [hidden]="LoginForm.controls['ConfirmPassword'].valid || LoginForm.controls['ConfirmPassword'].untouched"
                 class="alert alert-warning">
-                not matched
+                Not match The Password
             </div>
         </div>
 
         <div class="form-group">
             <label for="">Gender</label>
-            <input [(ngModel)]="account.Gender" type="password" class="form-control" formControlName="Gender">
+            
+            <select [(ngModel)]="account.Gender" class="form-control" formControlName="Gender">
+                <option value="Male" selected>Male</option>
+                <option value="Female">Female</option>
+            </select>
 
-            <div [hidden]="LoginForm.controls['Gender'].valid || LoginForm.controls['Gender'].untouched"
-                class="alert alert-warning">
-                Password is required and must be more Than 6 Chars
-            </div>
+            
         </div>
 
         <div class="form-group">
@@ -81,7 +112,7 @@
 
             <div [hidden]="LoginForm.controls['PhoneNumber'].valid || LoginForm.controls['PhoneNumber'].untouched"
                 class="alert alert-warning">
-                Password is required and must be more Than 6 Chars
+                phone Number is required and must be  11 digits
             </div>
         </div>
 
@@ -91,13 +122,15 @@
 
             <div [hidden]="LoginForm.controls['Address'].valid || LoginForm.controls['Address'].untouched"
                 class="alert alert-warning">
-                Password is required and must be more Than 6 Chars
+                Address is required 
             </div>
         </div>
 
 
-        <button class="btn mx-auto" style="background-color: #ca9819;" [disabled]="!LoginForm.valid"
-            type="submit">Login</button>
+        <button class="btn-gold "  type="submit">Register</button>
 
     </div>
 </form>
+
+<hr />
+<hr />
