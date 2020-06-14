@@ -14,7 +14,7 @@ const routes: Routes = [
   { path:'signup' , component:SignUpComponent },
   {path : 'createcourse' , component : CreateCourseComponent},
   {path:'courses/:StgID/:Sem/:Subject',component:SearchCourseResultsComponent},
-  {path :'courses' , component :CoursesComponent },
+  {path :'courses' , component :CoursesComponent }
   
 
 ];   

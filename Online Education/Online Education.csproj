@@ -127,7 +127,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChaptersController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
+<<<<<<< HEAD
     <Compile Include="Migrations\202006122224243_sig1.cs" />
     <Compile Include="Migrations\202006122224243_sig1.Designer.cs">
       <DependentUpon>202006122224243_sig1.cs</DependentUpon>
@@ -143,6 +145,12 @@
     <Compile Include="Migrations\202006130548227_sig3.cs" />
     <Compile Include="Migrations\202006130548227_sig3.Designer.cs">
       <DependentUpon>202006130548227_sig3.cs</DependentUpon>
+=======
+    <Compile Include="Controllers\LessonsController.cs" />
+    <Compile Include="Migrations\202006132112497_s.cs" />
+    <Compile Include="Migrations\202006132112497_s.Designer.cs">
+      <DependentUpon>202006132112497_s.cs</DependentUpon>
+>>>>>>> 8fe7ecb3fcf5f179e97807712e6d1823ab36eb1f
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -179,6 +187,7 @@
     <Folder Include="UserApp\" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202006122224243_sig1.resx">
       <DependentUpon>202006122224243_sig1.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +199,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006130548227_sig3.resx">
       <DependentUpon>202006130548227_sig3.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\202006132112497_s.resx">
+      <DependentUpon>202006132112497_s.cs</DependentUpon>
+>>>>>>> 8fe7ecb3fcf5f179e97807712e6d1823ab36eb1f
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
