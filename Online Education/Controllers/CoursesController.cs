@@ -25,6 +25,18 @@ namespace Online_Education.Controllers
             return db.Courses;
         }
 
+        public List<Course> GetCoursesByUserID(string id)
+        {
+            var coursesteached = db.Teach.Where(t=>t.TeacherID==id).ToList();
+            List<Course> courses = new List<Course>();
+            for (int i = 0; i < coursesteached.Count(); i++)
+            {
+                courses.Add(coursesteached[i].Course);
+            }
+            return courses;
+
+        }
+
         // GET: api/Courses/
         [ResponseType(typeof(IQueryable<Course>))]
         [Route("api/courses/{StgID}/{Sem}/{Subject}")]
@@ -160,9 +172,9 @@ namespace Online_Education.Controllers
                 db.Courses.Add(course);
                 Teach teach = new Teach();
                 teach.CourseCode = course.Code;
-                //teach.TeacherID=
+                teach.TeacherID = httpRequest["TeacherID"];
+                db.Teach.Add(teach);
 
-               //teach.TeacherID=User.Identity.
                 db.SaveChanges();
             }
             catch (Exception e)

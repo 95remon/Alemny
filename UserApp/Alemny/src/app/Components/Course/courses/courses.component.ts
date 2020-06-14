@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/Services/course.service';
 import { Router } from '@angular/router';
 import { ICourse } from 'src/Interfaces/icourse';
+import { AuthuserService } from '../../../../Services/auth.service';
 
 
 @Component({
@@ -12,11 +13,12 @@ import { ICourse } from 'src/Interfaces/icourse';
 export class CoursesComponent implements OnInit {
   CoursesList:ICourse[];
 
-  constructor(private _CourseService:CourseService,private _Router:Router) { }
+  constructor(private _CourseService:CourseService,private _Router:Router,private userService : AuthuserService) { }
 
   ngOnInit(): void {
     
-    this._CourseService.GetAllCourses().subscribe(
+    //this._CourseService.GetAllCourses().subscribe(
+      this._CourseService.GetCoursesByUserID(this.userService.userInfo.Id).subscribe(
       res=>{this.CoursesList=res;},
       err=>{console.log(err) ;alert(err)}
     )
@@ -24,7 +26,7 @@ export class CoursesComponent implements OnInit {
   }
   DeleteCourse(courseCode)
   {
-    alert("sssssssssssss")
+    
     this._CourseService.DeleteCourse(courseCode).subscribe(
       res=>{
         this._Router.navigate(['/courses']) ;

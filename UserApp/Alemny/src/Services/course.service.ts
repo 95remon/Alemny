@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { ICourse } from 'src/Interfaces/icourse';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { AuthuserService } from 'src/Services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CourseService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,private userService : AuthuserService) {}
 
   createCourse(course: ICourse,CourseImage:File):Observable<ICourse>{
     const Coursefd = new FormData();
@@ -20,6 +21,7 @@ export class CourseService {
     Coursefd.append('StageID',course.StageID.toString());
     Coursefd.append('Semester',course.Semester.toString());
     Coursefd.append("Image",CourseImage);
+    Coursefd.append("TeacherID",this.userService.userInfo.Id);
 
 
 
@@ -88,6 +90,12 @@ DeleteCourse(CourseCode:string)
     
   //   } 
   return this.httpClient.delete<ICourse>(`${environment.ApiURl}/Courses/${CourseCode}`);//,{headers:httpOptions1})
+
+}
+
+GetCoursesByUserID(userID:string):Observable<ICourse[]>
+{
+  return this.httpClient.get<ICourse[]>(`${environment.ApiURl}/Courses/GetCoursesByUserID/${userID}`)//,{headers:httpOptions1});
 
 }
 
