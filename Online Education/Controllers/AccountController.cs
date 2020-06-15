@@ -83,8 +83,27 @@ namespace Online_Education.Controllers
             
 
         }
+        [Route("api/account/GetUserInfo/{username}/{password}")]
+
+        public async Task<IHttpActionResult> GetUserInfo(string username, string password) 
+        {
+            UserStore<User> store =
+                      new UserStore<User>(new LearningContext());
+
+            UserManager<User> manager =
+                new UserManager<User>(store);
+
+            IdentityUser user = await manager.FindAsync(username, password);
+          
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
 
 
+        }
 
 
 

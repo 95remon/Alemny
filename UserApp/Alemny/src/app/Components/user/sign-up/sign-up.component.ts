@@ -17,8 +17,9 @@ export class SignUpComponent implements OnInit {
   InstructorImage:File;
   constructor(
     private user: AuthuserService,
-    private route: Router,
+     private route: Router,
     private FB: FormBuilder
+
   ) {
     
        this.account = {

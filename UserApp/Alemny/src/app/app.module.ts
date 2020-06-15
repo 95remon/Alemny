@@ -13,6 +13,8 @@ import { SearchCourseResultsComponent } from './Components/search-course-results
 import { CourseDetailsComponent } from './Components/course-details/course-details.component';
 import { ChapterComponent } from './Components/course-details/chapter/chapter.component';
 import { LessonComponent } from './Components/course-details/lesson/lesson.component';
+import { CoursesComponent } from './Components/Course/courses/courses.component';
+import { UpdateCourseComponent } from './Components/Course/update-course/update-course.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { LessonComponent } from './Components/course-details/lesson/lesson.compo
     CourseDetailsComponent,
     ChapterComponent,
     LessonComponent
+    CoursesComponent,
+    UpdateCourseComponent
   ],
   imports: [
     BrowserModule,

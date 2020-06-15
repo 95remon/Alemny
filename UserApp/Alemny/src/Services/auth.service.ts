@@ -4,12 +4,14 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { TokenParam } from 'src/Interfaces/token-param';
 import { IAccount } from 'src/Interfaces/iaccount';
+import { Iuser } from 'src/Interfaces/iuser';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthuserService {
+  userInfo:Iuser;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -67,6 +69,12 @@ export class AuthuserService {
     });
   
     return this.httpClient.get<string>(`${environment.ApiURl}/Role`, {headers: headerForTokenApi})
+  }
+
+  GetUserInfo(username:string,password:string):Observable<Iuser>
+  {
+    return this.httpClient.get<Iuser>(`${environment.ApiURl}/account/GetUserInfo/${username}/${password}`)
+
   }
 
 
