@@ -14,6 +14,8 @@ import { TeachersCourseComponent } from './Components/Course/teachers-course/tea
 
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
+import { CoursesComponent } from './Components/Course/courses/courses.component';
+import { UpdateCourseComponent } from './Components/Course/update-course/update-course.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HomeComponent } from './Components/home/home.component';
     SearchCourseResultsComponent,
     TeachersCourseComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    CoursesComponent,
+    UpdateCourseComponent
   ],
   imports: [
     BrowserModule,

@@ -44,7 +44,14 @@ namespace Online_Education
             config.Routes.MapHttpRoute(
                 "DefaultApi", "api/{controller}/{id}",
                 new { id = RouteParameter.Optional });
+
             // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
+
+            config.Routes.MapHttpRoute(
+                name: "ActionApi",
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
             app.UseWebApi(config);
         }
     }
@@ -84,7 +91,7 @@ namespace Online_Education
                 claims.AddClaim(new Claim(ClaimTypes.Name, user.UserName));
                 if (manager.IsInRole(user.Id, "Admin"))
                     claims.AddClaim(new Claim(ClaimTypes.Role, "Admin"));
-
+              
                 context.Validated(claims);
             }
 

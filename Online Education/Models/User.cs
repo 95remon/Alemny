@@ -11,7 +11,7 @@ namespace Online_Education.Models
     {
         public string Type { get; set; }
         public string Name { get; set; }
-        public string Image { get; set; }    
+        public string Image { get; set; }  
         public string Level { get; set; }
         public string Gender { get; set; }
         public string Address { get; set; }

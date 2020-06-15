@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Online_Education.Models;
@@ -21,6 +23,18 @@ namespace Online_Education.Controllers
         public IQueryable<Course> GetCourses()
         {
             return db.Courses;
+        }
+
+        public List<Course> GetCoursesByUserID(string id)
+        {
+            var coursesteached = db.Teach.Where(t=>t.TeacherID==id).ToList();
+            List<Course> courses = new List<Course>();
+            for (int i = 0; i < coursesteached.Count(); i++)
+            {
+                courses.Add(coursesteached[i].Course);
+            }
+            return courses;
+
         }
 
         // GET: api/Courses/
@@ -49,78 +63,127 @@ namespace Online_Education.Controllers
 
             return Ok(course);
         }
-
         // PUT: api/Courses/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutCourse(string id, Course course)
+        public async Task<IHttpActionResult> PutCourse(string id)
         {
+            Course course = new Course();
+            string pathImage;
+            var httpRequest =  HttpContext.Current.Request;
+
+            //Upload Image
+            var postedFile = httpRequest.Files["Image"];
+            course.Name = httpRequest["Name"];
+            course.Description = httpRequest["Description"];
+            course.MaxDegree = int.Parse(httpRequest["MaxDegree"]);
+            course.MinDegree = int.Parse(httpRequest["MinDegree"]);
+            course.StageID = int.Parse(httpRequest["StageID"]);
+            semester sem =  (semester)Enum.Parse(typeof(semester), httpRequest["Semester"]);
+            course.Semester = sem;
+            //Custom filename
+            if (postedFile != null)
+            {
+                pathImage = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
+                pathImage += DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
+                string filePath = "";
+
+                filePath = HttpContext.Current.Server.MapPath("~/Content/Images/" + pathImage);
+                pathImage = "http://localhost:51851/Content/Images/" + pathImage;
+
+                course.Image = pathImage;
+                postedFile.SaveAs(filePath);
+            }
+
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState);//400
             }
-
-            if (id != course.Code)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(course).State = EntityState.Modified;
-
             try
             {
-                await db.SaveChangesAsync();
+                Course oldCourse = db.Courses.FirstOrDefault(p => p.Code == id);
+                oldCourse.Name = course.Name;
+                oldCourse.Description = course.Description;
+                oldCourse.MaxDegree = course.MaxDegree;
+               
+                oldCourse.MinDegree = course.MinDegree;
+                oldCourse.StageID = course.StageID;
+                oldCourse.Semester = course.Semester;
+                if (postedFile != null)
+                {
+                    oldCourse.Image = course.Image;
+                }
+
+                 db.SaveChanges();
+
+                return StatusCode(HttpStatusCode.NoContent);
+
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception ex)
             {
-                if (!CourseExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest(ex.Message);//400
+
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
         }
+
+           
+        
 
         // POST: api/Courses
         [ResponseType(typeof(Course))]
         [HttpPost]
-        public async Task<IHttpActionResult> CreateCourse(Course course)
+        public async Task<IHttpActionResult> PostCourse()
         {
-            //course.Code = "111";
-            //course.StageID = 1;
+            Course course = new Course();
+            string pathImage;
+            var httpRequest = HttpContext.Current.Request;
+
+
+            
+            //Upload Image
+            var postedFile = httpRequest.Files["Image"];
+
+            course.Code = httpRequest["Code"];
+            course.Name = httpRequest["Name"];
+            course.Description = httpRequest["Description"];
+            course.MaxDegree = int.Parse(httpRequest["MaxDegree"]);
+            course.MinDegree = int.Parse(httpRequest["MinDegree"]);
+            course.StageID= int.Parse(httpRequest["StageID"]);
+            semester sem = (semester)Enum.Parse(typeof(semester), httpRequest["Semester"]);
+            course.Semester = sem;
+            //Custom filename
+            pathImage = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
+            pathImage += DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
+            string filePath = "";
+
+            filePath = HttpContext.Current.Server.MapPath("~/Content/Images/" + pathImage);
+            pathImage = "http://localhost:51851/Content/Images/" + pathImage;
+
+            course.Image = pathImage;
+            postedFile.SaveAs(filePath);
+
+
+
 
             if (!ModelState.IsValid)
-            {
-                string s = "";
-                foreach (var error in ModelState)
-                    s += error;
-
                 return BadRequest(ModelState);
-            }
-
-            db.Courses.Add(course);
-
             try
             {
-                await db.SaveChangesAsync();
+                db.Courses.Add(course);
+                Teach teach = new Teach();
+                teach.CourseCode = course.Code;
+                teach.TeacherID = httpRequest["TeacherID"];
+                db.Teach.Add(teach);
+
+                db.SaveChanges();
             }
-            catch (DbUpdateException)
+            catch (Exception e)
             {
-                if (CourseExists(course.Code))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest(e.Message);
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = course.Code }, course);
+
+            return Ok(course);//CreatedAtRoute("DefaultApi", new { id = course.Code }, course);
         }
 
         // DELETE: api/Courses/5

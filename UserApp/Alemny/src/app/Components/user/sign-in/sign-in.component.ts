@@ -20,10 +20,26 @@ export class SignInComponent implements OnInit {
      localStorage.setItem('userToken',data.access_token);
     //  this.router.navigate(['/index']);
      console.log( localStorage.getItem('userToken'))
+     this.router.navigate(['/courses']) ;
    },
    (err : HttpErrorResponse)=>{
      
    });
+
+
+   this.userService.GetUserInfo(userName,password).subscribe(
+     data=>
+   {
+       this.userService.userInfo=data;
+   }
+   ,err=>
+   {
+    alert(err)
+
+   }
+  );
+
+  
  }
 
 }
