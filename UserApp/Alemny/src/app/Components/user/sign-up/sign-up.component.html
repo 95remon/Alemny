@@ -1,136 +1,132 @@
-
-
 <!-- {{LoginForm.value|json}} -->
 <!-- <br>
   <h2>Account</h2> -->
 
+<div style="background-color: #f5f6fa; padding-top: 20px;">
 <form [formGroup]="LoginForm" (ngSubmit)="reg()" class="mx-auto" style="width:45%;">
-    <div class="form-horizontal">
-        <div class="mx-auto d-flex justify-content-center ">
-            <h3 class=" " style="margin-left: 10px;">Register </h3>
-        </div>
-        <hr />
-        <!-- <hr style="background-color: #f1c75f;"/> -->
-
-        <div class="form-group">
-            <label for="">Instructor or Student</label>
-            
-            <select [(ngModel)]="account.Type" class="form-control" formControlName="Type">
-                <option value="Instructor" selected>Instructor</option>
-                <option value="Student">Student</option>
-            </select>
-
-        </div>
-        <div class="form-group">
-            <label for="">Name</label>
-            <input [(ngModel)]="account.Name" type="text" class="form-control" formControlName="Name">
-
-            <div [hidden]="LoginForm.controls['Name'].valid || LoginForm.controls['Name'].untouched"
-                class="alert alert-warning">
-                Your Name is required and must be more Than 3 Chars
+    <div class="" style="padding: 20px ; border-radius: 35px;background-color: white;border: 1px solid lightgray">
+        <div class="form-horizontal">
+            <div class="mx-auto d-flex justify-content-center" style="color:#00b8df">
+                <h3 class=" " style="margin-left: 10px;">Alemny </h3>
             </div>
-        </div>
+           
+            <!-- <hr style="background-color: #f1c75f;"/> -->
 
-        <div class="form-group">
-            <label for="">UserName</label>
-            <input [(ngModel)]="account.UserName" type="text" class="form-control" formControlName="UserName">
+            <div class="form-group">
+                <label for="">Instructor or Student</label>
 
-            <div [hidden]="LoginForm.controls['UserName'].valid || LoginForm.controls['UserName'].untouched"
-                class="alert alert-warning">
-                UserName is required and must be more Than 3 Chars
+                <select [(ngModel)]="account.Type" class="form-control" formControlName="Type">
+                    <option value="Instructor" selected>Instructor</option>
+                    <option value="Student">Student</option>
+                </select>
+
             </div>
-        </div>
+            <div class="form-group">
+                <label for="">Name</label>
+                <input [(ngModel)]="account.Name" type="text" class="form-control" formControlName="Name">
 
-        <div *ngIf="account.Type=='Instructor'" class="form-group">
-            <label for="">Image</label>
-            <input (change)="readURL($event);"
-            type="file" class="form-control" formControlName="Image">
-        </div>
-
-        
-        <div *ngIf="account.Type=='Student'" class="form-group">
-         
-            <label for="">Student Level</label>
-            
-            <select [(ngModel)]="account.Level" class="form-control" formControlName="Level">
-                <option value="First" selected>First</option>
-                <option value="Second">Second</option>
-                <option value="Third">Third</option>
-                <option value="Forth">Forth</option>
-                
-            </select>
-
-        </div>
-        <div class="form-group">
-            <label for="">Email</label>
-            <input [(ngModel)]="account.Email" type="email" class="form-control"
-                formControlName="Email">
-
-            <div [hidden]="LoginForm.controls['Email'].valid || LoginForm.controls['Email'].untouched"
-                class="alert alert-warning">
-             Your email must be in Format 'user@user.com'
+                <div [hidden]="LoginForm.controls['Name'].valid || LoginForm.controls['Name'].untouched"
+                    class="alert alert-warning">
+                    Your Name is required and must be more Than 3 Chars
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label for="">Password</label>
-            <input [(ngModel)]="account.Password" type="password" class="form-control" formControlName="Password">
+            <div class="form-group">
+                <label for="">UserName</label>
+                <input [(ngModel)]="account.UserName" type="text" class="form-control" formControlName="UserName">
 
-            <div [hidden]="LoginForm.controls['Password'].valid || LoginForm.controls['Password'].untouched"
-                class="alert alert-warning">
-                Password is required and must be more Than 6 Chars
+                <div [hidden]="LoginForm.controls['UserName'].valid || LoginForm.controls['UserName'].untouched"
+                    class="alert alert-warning">
+                    UserName is required and must be more Than 3 Chars
+                </div>
             </div>
-        </div>
 
-
-
-        <div class="form-group">
-            <label for="">ConfirmPassword</label>
-            <input [(ngModel)]="account.ConfirmPassword" type="password" class="form-control"
-                formControlName="ConfirmPassword">
-
-            <div [hidden]="LoginForm.controls['ConfirmPassword'].valid || LoginForm.controls['ConfirmPassword'].untouched"
-                class="alert alert-warning">
-                Not match The Password
+            <div *ngIf="account.Type=='Instructor'" class="form-group">
+                <label for="">Image</label>
+                <input (change)="readURL($event);" type="file" class="form-control" formControlName="Image">
             </div>
-        </div>
 
-        <div class="form-group">
-            <label for="">Gender</label>
-            
-            <select [(ngModel)]="account.Gender" class="form-control" formControlName="Gender">
-                <option value="Male" selected>Male</option>
-                <option value="Female">Female</option>
-            </select>
+            <div *ngIf="account.Type=='Student'" class="form-group">
 
-            
-        </div>
+                <label for="">Student Level</label>
 
-        <div class="form-group">
-            <label for="">Phone Number</label>
-            <input [(ngModel)]="account.PhoneNumber" type="text" class="form-control" formControlName="PhoneNumber">
+                <select [(ngModel)]="account.Level" class="form-control" formControlName="Level">
+                    <option value="First" selected>First</option>
+                    <option value="Second">Second</option>
+                    <option value="Third">Third</option>
+                    <option value="Forth">Forth</option>
 
-            <div [hidden]="LoginForm.controls['PhoneNumber'].valid || LoginForm.controls['PhoneNumber'].untouched"
-                class="alert alert-warning">
-                phone Number is required and must be  11 digits
+                </select>
+
             </div>
-        </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input [(ngModel)]="account.Email" type="email" class="form-control" formControlName="Email">
 
-        <div class="form-group">
-            <label for="">Address</label>
-            <input [(ngModel)]="account.Address" type="text" class="form-control" formControlName="Address">
-
-            <div [hidden]="LoginForm.controls['Address'].valid || LoginForm.controls['Address'].untouched"
-                class="alert alert-warning">
-                Address is required 
+                <div [hidden]="LoginForm.controls['Email'].valid || LoginForm.controls['Email'].untouched"
+                    class="alert alert-warning">
+                    Your email must be in Format 'user@user.com'
+                </div>
             </div>
+
+            <div class="form-group">
+                <label for="">Password</label>
+                <input [(ngModel)]="account.Password" type="password" class="form-control" formControlName="Password">
+
+                <div [hidden]="LoginForm.controls['Password'].valid || LoginForm.controls['Password'].untouched"
+                    class="alert alert-warning">
+                    Password is required and must be more Than 6 Chars
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="">ConfirmPassword</label>
+                <input [(ngModel)]="account.ConfirmPassword" type="password" class="form-control"
+                    formControlName="ConfirmPassword">
+
+                <div [hidden]="LoginForm.controls['ConfirmPassword'].valid || LoginForm.controls['ConfirmPassword'].untouched"
+                    class="alert alert-warning">
+                    Not match The Password
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Gender</label>
+
+                <select [(ngModel)]="account.Gender" class="form-control" formControlName="Gender">
+                    <option value="Male" selected>Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+
+            </div>
+
+            <div class="form-group">
+                <label for="">Phone Number</label>
+                <input [(ngModel)]="account.PhoneNumber" type="text" class="form-control" formControlName="PhoneNumber">
+
+                <div [hidden]="LoginForm.controls['PhoneNumber'].valid || LoginForm.controls['PhoneNumber'].untouched"
+                    class="alert alert-warning">
+                    phone Number is required and must be 11 digits
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Address</label>
+                <input [(ngModel)]="account.Address" type="text" class="form-control" formControlName="Address">
+
+                <div [hidden]="LoginForm.controls['Address'].valid || LoginForm.controls['Address'].untouched"
+                    class="alert alert-warning">
+                    Address is required
+                </div>
+            </div>
+
+
+            <button class="btn" style="background-color: #00b8df;" type="submit">Register</button>
+
         </div>
-
-
-        <button class="btn-gold "  type="submit">Register</button>
-
     </div>
 </form>
-
-<hr />
-<hr />
+</div>

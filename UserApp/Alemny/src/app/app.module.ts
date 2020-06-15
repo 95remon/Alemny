@@ -13,6 +13,7 @@ import { SearchCourseResultsComponent } from './Components/search-course-results
 import { TeachersCourseComponent } from './Components/Course/teachers-course/teachers-course.component';
 
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     CreateCourseComponent,
     SearchCourseResultsComponent,
     TeachersCourseComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     NgbModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,    
+    ReactiveFormsModule, 
+     
   ],
   providers: [],
   bootstrap: [AppComponent]
