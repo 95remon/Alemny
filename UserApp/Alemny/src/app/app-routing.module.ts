@@ -12,7 +12,7 @@ import { UpdateCourseComponent } from './Components/Course/update-course/update-
 const routes: Routes = [
   {path:'UpdateCourse/:CourseCode',component:UpdateCourseComponent},
   { path:'signin' , component:SignInComponent },
-  { path:'signup1' , component:SignUpComponent },
+  { path:'signup' , component:SignUpComponent },
   {path : 'createcourse' , component : CreateCourseComponent},
   { path:'courses/:StgID/:Sem/:Subject',component:SearchCourseResultsComponent},
   { path:'home',component:HomeComponent},

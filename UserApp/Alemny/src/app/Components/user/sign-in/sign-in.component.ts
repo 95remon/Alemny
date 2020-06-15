@@ -21,6 +21,7 @@ export class SignInComponent implements OnInit {
     //  this.router.navigate(['/index']);
      console.log( localStorage.getItem('userToken'))
      this.router.navigate(['/courses']) ;
+     
    },
    (err : HttpErrorResponse)=>{
      

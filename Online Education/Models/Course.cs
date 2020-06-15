@@ -9,11 +9,11 @@ using System.Web;
 
 namespace Online_Education.Models
 {
-    public enum semester
+    /*public enum semester
     {
         First = 1,
         Second = 2
-    }
+    }*/
     public class Course
     {
         [Key]
@@ -32,7 +32,7 @@ namespace Online_Education.Models
         [Required]
         public int StageID { get; set; }
         [Required]
-        public semester Semester { get; set; }
+        public string Semester { get; set; }
       
 
         [JsonIgnore]

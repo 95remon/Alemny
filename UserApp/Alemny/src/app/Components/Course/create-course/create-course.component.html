@@ -57,6 +57,12 @@
             <input [(ngModel)]="course.MinDegree" type="number" class="form-control"
                 formControlName="MinDegree">
 
+                <div [hidden]="CreateCourse.controls['MinDegree'].value <= CreateCourse.controls['MaxDegree'].value"
+                class="alert alert-warning">
+                  sorry Min degree should be less than max degree 
+                </div> 
+    
+
             <div [hidden]="CreateCourse.controls['MinDegree'].valid || CreateCourse.controls['MinDegree'].untouched"
                 class="alert alert-warning">
                 not matched
@@ -100,8 +106,9 @@
        </div>
        <!-- -->
 
-        <button class="btn mx-auto float-right" style="background-color: #ca9819;" [disabled]="!CreateCourse.valid"
-            type="submit">Create</button>
+       <button class="btn mx-auto float-right" style="background-color: #ca9819;" [disabled]="!CreateCourse.valid ||CreateCourse.controls['MinDegree'].value > CreateCourse.controls['MaxDegree'].value"
+       type="submit">Create</button>
+
 
     </div>
 </form>
