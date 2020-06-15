@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCourseComponent } from './Components/Course/create-course/create-course.component';
 import { SearchCourseResultsComponent } from './Components/search-course-results/search-course-results.component';
+import { CourseDetailsComponent } from './Components/course-details/course-details.component';
+import { ChapterComponent } from './Components/course-details/chapter/chapter.component';
+import { LessonComponent } from './Components/course-details/lesson/lesson.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { SearchCourseResultsComponent } from './Components/search-course-results
     SignInComponent,
     SignUpComponent,
     CreateCourseComponent,
-    SearchCourseResultsComponent
+    SearchCourseResultsComponent,
+    CourseDetailsComponent,
+    ChapterComponent,
+    LessonComponent
   ],
   imports: [
     BrowserModule,
