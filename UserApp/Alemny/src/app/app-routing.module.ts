@@ -16,7 +16,9 @@ const routes: Routes = [
   {path : 'createcourse' , component : CreateCourseComponent},
   { path:'courses/:StgID/:Sem/:Subject',component:SearchCourseResultsComponent},
   { path:'home',component:HomeComponent},
-  {path :'courses' , component :CoursesComponent }
+  {path :'courses' , component :CoursesComponent },
+  {path:'',redirectTo:'/home',pathMatch:'full'},
+
   
   
 

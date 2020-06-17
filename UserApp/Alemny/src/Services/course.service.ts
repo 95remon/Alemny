@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ICourse } from 'src/Interfaces/icourse';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, observable } from 'rxjs';
 import { AuthuserService } from 'src/Services/auth.service';
 
 @Injectable({
@@ -46,7 +46,7 @@ export class CourseService {
      return this.httpClient.get<ICourse[]>(`${environment.ApiURl}/courses`);//,{headers:httpOptions1});
   }
 
-  GetCourseByCode(courseCode:string):any
+  GetCourseByCode(courseCode:string):Observable<ICourse>
   {
    
       // if(sessionStorage.getItem('access_token') !=null)
@@ -54,7 +54,7 @@ export class CourseService {
       //   var httpOptions1 =  new HttpHeaders({ 'Authorization':'Bearer '+sessionStorage.getItem('access_token')});
       
       // }   
-      return this.httpClient.get(`${environment.ApiURl}/Courses/${courseCode}`)//,{headers:httpOptions1});
+      return this.httpClient.get<ICourse>(`${environment.ApiURl}/Courses/${courseCode}`)//,{headers:httpOptions1});
       
     
   }
@@ -77,7 +77,7 @@ export class CourseService {
   Coursefd.append('Semester',course.Semester.toString());
   Coursefd.append("Image",CourseImage);
 
-  return this.httpClient.put<ICourse>(`${environment.ApiURl}/Courses/${course.Code}`,Coursefd)//,{headers:httpOptions1})
+  return this.httpClient.put<ICourse>(`${environment.ApiURl}/Courses`,Coursefd)//,{headers:httpOptions1})
 
 }
 

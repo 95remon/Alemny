@@ -92,3 +92,97 @@ E:\Alemny\Online Education\obj\Debug\Online_Education.Migrations.s.resources
 E:\Alemny\Online Education\obj\Debug\Online Education.csproj.GenerateResource.cache
 E:\Alemny\Online Education\obj\Debug\Online Education.csprojAssemblyReference.cache
 E:\Alemny\Online Education\obj\Debug\Online_Education.Migrations.step2.resources
+E:\Last Version Alemny\Online Education\bin\Online Education.dll.config
+E:\Last Version Alemny\Online Education\bin\Online Education.dll
+E:\Last Version Alemny\Online Education\bin\Online Education.pdb
+E:\Last Version Alemny\Online Education\bin\roslyn\csc.exe
+E:\Last Version Alemny\Online Education\bin\roslyn\csc.exe.config
+E:\Last Version Alemny\Online Education\bin\roslyn\csc.rsp
+E:\Last Version Alemny\Online Education\bin\roslyn\csi.exe
+E:\Last Version Alemny\Online Education\bin\roslyn\csi.exe.config
+E:\Last Version Alemny\Online Education\bin\roslyn\csi.rsp
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Last Version Alemny\Online Education\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.AppContext.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Collections.Immutable.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Console.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Globalization.Calendars.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.IO.Compression.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.IO.FileSystem.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Net.Http.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Net.Sockets.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Reflection.Metadata.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.ValueTuple.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Xml.XPath.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Last Version Alemny\Online Education\bin\roslyn\vbc.exe
+E:\Last Version Alemny\Online Education\bin\roslyn\vbc.exe.config
+E:\Last Version Alemny\Online Education\bin\roslyn\vbc.rsp
+E:\Last Version Alemny\Online Education\bin\roslyn\VBCSCompiler.exe
+E:\Last Version Alemny\Online Education\bin\roslyn\VBCSCompiler.exe.config
+E:\Last Version Alemny\Online Education\bin\EntityFramework.dll
+E:\Last Version Alemny\Online Education\bin\EntityFramework.SqlServer.dll
+E:\Last Version Alemny\Online Education\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Last Version Alemny\Online Education\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Last Version Alemny\Online Education\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Last Version Alemny\Online Education\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.Cors.dll
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.dll
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.Security.dll
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Last Version Alemny\Online Education\bin\Newtonsoft.Json.dll
+E:\Last Version Alemny\Online Education\bin\Owin.dll
+E:\Last Version Alemny\Online Education\bin\System.Net.Http.Formatting.dll
+E:\Last Version Alemny\Online Education\bin\System.Web.Cors.dll
+E:\Last Version Alemny\Online Education\bin\System.Web.Http.dll
+E:\Last Version Alemny\Online Education\bin\System.Web.Http.Owin.dll
+E:\Last Version Alemny\Online Education\bin\EntityFramework.xml
+E:\Last Version Alemny\Online Education\bin\EntityFramework.SqlServer.xml
+E:\Last Version Alemny\Online Education\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Last Version Alemny\Online Education\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Last Version Alemny\Online Education\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.xml
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.Cors.xml
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.Security.xml
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Last Version Alemny\Online Education\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Last Version Alemny\Online Education\bin\Newtonsoft.Json.xml
+E:\Last Version Alemny\Online Education\bin\System.Net.Http.Formatting.xml
+E:\Last Version Alemny\Online Education\bin\System.Web.Http.xml
+E:\Last Version Alemny\Online Education\bin\System.Web.Http.Owin.xml
+E:\Last Version Alemny\Online Education\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Last Version Alemny\Online Education\obj\Debug\Online_Education.Migrations.s.resources
+E:\Last Version Alemny\Online Education\obj\Debug\Online_Education.Migrations.step2.resources
+E:\Last Version Alemny\Online Education\obj\Debug\Online Education.csproj.GenerateResource.cache
+E:\Last Version Alemny\Online Education\obj\Debug\Online Education.csproj.CoreCompileInputs.cache
+E:\Last Version Alemny\Online Education\obj\Debug\Online Education.csproj.CopyComplete
+E:\Last Version Alemny\Online Education\obj\Debug\Online Education.dll
+E:\Last Version Alemny\Online Education\obj\Debug\Online Education.pdb
+E:\Last Version Alemny\Online Education\obj\Debug\Online Education.csprojAssemblyReference.cache

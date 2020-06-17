@@ -19,6 +19,7 @@ namespace Online_Education.Controllers
     {
         private LearningContext db = new LearningContext();
 
+
         // GET: api/Courses
         public IQueryable<Course> GetCourses()
         {
@@ -40,18 +41,19 @@ namespace Online_Education.Controllers
         // GET: api/Courses/
         [ResponseType(typeof(IQueryable<Course>))]
         [Route("api/courses/{StgID}/{Sem}/{Subject}")]
-       /* public async Task<IHttpActionResult> GetCourse(int StgID, semester Sem, string Subject)
-        {
-            List<Course> courses = await db.Courses.Where(c=>c.StageID==StgID&&c.Semester==Sem&&c.Name.ToLower()==Subject.ToLower()).ToListAsync();
-            if (courses == null)
-            {
-                return NotFound();
-            }
+        /* public async Task<IHttpActionResult> GetCourse(int StgID, semester Sem, string Subject)
+         {
+             List<Course> courses = await db.Courses.Where(c=>c.StageID==StgID&&c.Semester==Sem&&c.Name.ToLower()==Subject.ToLower()).ToListAsync();
+             if (courses == null)
+             {
+                 return NotFound();
+             }
 
-            return Ok(courses);
-        }
-        */
+             return Ok(courses);
+         }
+         */
         // GET: api/Courses/5
+        [Route("api/courses/{id}")]
         [ResponseType(typeof(Course))]
         public async Task<IHttpActionResult> GetCourse(string id)
         {
@@ -65,13 +67,15 @@ namespace Online_Education.Controllers
         }
         // PUT: api/Courses/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutCourse(string id)
+        public async Task<IHttpActionResult> PutCourse()
         {
+            
             Course course = new Course();
             string pathImage;
             var httpRequest =  HttpContext.Current.Request;
 
             //Upload Image
+            course.Code = httpRequest["Code"];
             var postedFile = httpRequest.Files["Image"];
             course.Name = httpRequest["Name"];
             course.Description = httpRequest["Description"];
@@ -101,7 +105,7 @@ namespace Online_Education.Controllers
             }
             try
             {
-                Course oldCourse = db.Courses.FirstOrDefault(p => p.Code == id);
+                Course oldCourse = db.Courses.FirstOrDefault(p => p.Code == course.Code);
                 oldCourse.Name = course.Name;
                 oldCourse.Description = course.Description;
                 oldCourse.MaxDegree = course.MaxDegree;
@@ -124,7 +128,7 @@ namespace Online_Education.Controllers
                 return BadRequest(ex.Message);//400
 
             }
-
+            
         }
 
            

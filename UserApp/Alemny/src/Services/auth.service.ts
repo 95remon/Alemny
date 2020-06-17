@@ -13,7 +13,11 @@ import { Iuser } from 'src/Interfaces/iuser';
 export class AuthuserService {
   userInfo:Iuser;
 
-  constructor(private httpClient: HttpClient) { }
+  isLogin : boolean;
+
+  constructor(private httpClient: HttpClient) { 
+    this.isLogin = false;
+  }
 
   
 
