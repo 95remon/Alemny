@@ -47,11 +47,11 @@ namespace Online_Education
 
             // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
 
-            config.Routes.MapHttpRoute(
+           /* config.Routes.MapHttpRoute(
                 name: "ActionApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
-            );
+            );*/
             app.UseWebApi(config);
         }
     }

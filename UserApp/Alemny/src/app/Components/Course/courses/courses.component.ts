@@ -14,7 +14,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CoursesComponent implements OnInit {
   CoursesList: ICourse[];
   CourseCount : number;
-  course: ICourse ;
+  Course: ICourse ;
   courseImage:File;
 
   editCourse: FormGroup;
@@ -66,8 +66,8 @@ export class CoursesComponent implements OnInit {
 
        console.log("Result : " + res);
 
-       this.course = res as ICourse,
-         console.log('Course : ' + this.course.Name)
+       this.Course = res as ICourse,
+         console.log('Course : ' + this.Course.Name)
 
          this.modalService.open(content).result.then((ok)=> {
           let deletedProd = this.CoursesList.find(prod=>prod.Code == courseCode)},
@@ -148,7 +148,7 @@ export class CoursesComponent implements OnInit {
   UpdateCourse():void
   {
     
-    this._courseSer.updateCourse(this.course,this.courseImage).subscribe(
+    this._courseSer.updateCourse(this.Course,this.courseImage).subscribe(
       (data: any) => {
         alert(data)
         this._Router.navigate(["/courses"]);

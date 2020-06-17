@@ -197,16 +197,17 @@ namespace Online_Education.Controllers
 
         // DELETE: api/Courses/5
         [ResponseType(typeof(Course))]
-        public async Task<IHttpActionResult> DeleteCourse(string id)
+        [HttpDelete , Route("api/courses/{CourseCode}")]
+        public  IHttpActionResult DeleteCourse(string CourseCode)
         {
-            Course course = await db.Courses.FindAsync(id);
+            Course course =  db.Courses.Find(CourseCode);
             if (course == null)
             {
                 return NotFound();
             }
 
             db.Courses.Remove(course);
-            await db.SaveChangesAsync();
+            db.SaveChangesAsync();
 
             return Ok(course);
         }

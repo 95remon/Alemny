@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit , AfterViewInit {
 
 
   ngOnInit(): void {
-    this.upatetText();
+    //this.upatetText();
     
   }
 

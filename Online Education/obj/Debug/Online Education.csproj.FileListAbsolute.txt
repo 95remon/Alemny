@@ -178,11 +178,10 @@ E:\Last Version Alemny\Online Education\bin\System.Net.Http.Formatting.xml
 E:\Last Version Alemny\Online Education\bin\System.Web.Http.xml
 E:\Last Version Alemny\Online Education\bin\System.Web.Http.Owin.xml
 E:\Last Version Alemny\Online Education\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\Last Version Alemny\Online Education\obj\Debug\Online_Education.Migrations.s.resources
-E:\Last Version Alemny\Online Education\obj\Debug\Online_Education.Migrations.step2.resources
+E:\Last Version Alemny\Online Education\obj\Debug\Online Education.csprojAssemblyReference.cache
+E:\Last Version Alemny\Online Education\obj\Debug\Online_Education.Migrations.step11.resources
 E:\Last Version Alemny\Online Education\obj\Debug\Online Education.csproj.GenerateResource.cache
 E:\Last Version Alemny\Online Education\obj\Debug\Online Education.csproj.CoreCompileInputs.cache
 E:\Last Version Alemny\Online Education\obj\Debug\Online Education.csproj.CopyComplete
 E:\Last Version Alemny\Online Education\obj\Debug\Online Education.dll
 E:\Last Version Alemny\Online Education\obj\Debug\Online Education.pdb
-E:\Last Version Alemny\Online Education\obj\Debug\Online Education.csprojAssemblyReference.cache
