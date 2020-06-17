@@ -25,6 +25,7 @@ namespace Online_Education.Controllers
 
         // GET: api/Chapters/5
         [ResponseType(typeof(Chapter))]
+        [Route("api/chapter/{id}")]
         public async Task<IHttpActionResult> GetChapter(int id)
         {
             Chapter chapter = await db.Chapters.FindAsync(id);
@@ -36,6 +37,13 @@ namespace Online_Education.Controllers
             return Ok(chapter);
         }
 
+        public List<Chapter> GetChaptersByCourseCode(string id)
+        {
+            var courseChapters = db.Chapters.Where(c => c.CourseCode == id).ToList();
+            
+            return courseChapters;
+
+        }
         // PUT: api/Chapters/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutChapter(int id, Chapter chapter)
@@ -75,6 +83,9 @@ namespace Online_Education.Controllers
         [ResponseType(typeof(Chapter))]
         public async Task<IHttpActionResult> PostChapter(Chapter chapter)
         {
+            var c = new Chapter();
+            c = chapter;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

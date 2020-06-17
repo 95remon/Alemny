@@ -1,0 +1,76 @@
+
+<form class="form-group col-12" (ngSubmit)="addChapter(Name.value , Description.value)" [formGroup]="ChapterForm">
+    <div class="form-group col-4">
+        <label for="">Add Chapter </label>
+        <input #Name [(ngModel)]="chapter.Name" type="text" class="form-control" formControlName="Name">
+
+        <div [hidden]="ChapterForm.controls['Name'].valid || ChapterForm.controls['Name'].untouched"
+            class="alert alert-warning">
+            Must be more than 3 Characters
+        </div>
+        
+    </div>
+    <div class="form-group col-4">
+        <label for="">Add Description</label>
+        <input #Description [(ngModel)]="chapter.Description" type="text" class="form-control" formControlName="Description">
+
+        <div [hidden]="ChapterForm.controls['Description'].valid || ChapterForm.controls['Description'].untouched"
+            class="alert alert-warning">
+            Must be more than 3 Characters
+        </div>
+        
+    </div>
+    <button class="btn-primary"  type="submit">Add</button>
+</form>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">View</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Chapter of ChaptersList ;let i=index">
+        <th scope="row">{{Chapter.Name}}</th>
+        <th scope="row">{{Chapter.Description}}</th>
+        <td>
+          <a  (click)="changeChapterID(Chapter)"class="btn btn-success">
+          <i class="fas fa-edit"></i> View
+          </a>
+        </td>
+        <td>
+          <a class="btn btn-info">
+          <i class="fas fa-edit"></i> Edit
+          </a>
+        </td>
+        <td>
+          <a class="btn btn-danger">
+          <i class="fas fa-edit"></i> Delete
+          </a>
+        </td>
+        
+      </tr>
+    </tbody>
+  </table>
+<br/>
+  <div class="container">
+    <div class="row valign-wrapper">
+      <div class="col s6 offset-s3 valign">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Card Title</span>
+            <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
