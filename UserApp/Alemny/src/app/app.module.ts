@@ -25,7 +25,7 @@ import { UpdateCourseComponent } from './Components/Course/update-course/update-
     SearchCourseResultsComponent,
     CourseDetailsComponent,
     ChapterComponent,
-    LessonComponent
+    LessonComponent,
     CoursesComponent,
     UpdateCourseComponent
   ],
@@ -35,7 +35,7 @@ import { UpdateCourseComponent } from './Components/Course/update-course/update-
     NgbModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,    
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

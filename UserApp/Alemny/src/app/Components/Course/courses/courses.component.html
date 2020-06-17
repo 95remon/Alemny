@@ -14,6 +14,10 @@
                         <p class="card-text"> Min Degree :{{Course.MinDegree}}</p>
                         <a routerLink="/UpdateCourse/{{Course.Code}}" class="btn btn-info">
                                 <i class="fas fa-edit"></i> Update</a>
+                                <a routerLink="/coursedetails/{{Course.Code}}" class="btn btn-info">
+                                        <i class="fas fa-edit"></i> Details
+                                </a>
+       
                                 <a class="btn btn-danger"(click)="DeleteCourse(Course.Code)" style="margin-left:15px" data-toggle="modal" data-target="#myModal">
                                         <i class="fas fa-trash-alt" ></i> Remove</a>
                 

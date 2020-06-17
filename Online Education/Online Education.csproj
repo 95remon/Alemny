@@ -130,9 +130,17 @@
     <Compile Include="Controllers\ChaptersController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\LessonsController.cs" />
-    <Compile Include="Migrations\202006141932131_fiest.cs" />
-    <Compile Include="Migrations\202006141932131_fiest.Designer.cs">
-      <DependentUpon>202006141932131_fiest.cs</DependentUpon>
+    <Compile Include="Migrations\202006151607185_s.cs" />
+    <Compile Include="Migrations\202006151607185_s.Designer.cs">
+      <DependentUpon>202006151607185_s.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006151716538_ss.cs" />
+    <Compile Include="Migrations\202006151716538_ss.Designer.cs">
+      <DependentUpon>202006151716538_ss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006161647542_sss.cs" />
+    <Compile Include="Migrations\202006161647542_sss.Designer.cs">
+      <DependentUpon>202006161647542_sss.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -169,8 +177,14 @@
     <Folder Include="UserApp\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006141932131_fiest.resx">
-      <DependentUpon>202006141932131_fiest.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006151607185_s.resx">
+      <DependentUpon>202006151607185_s.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006151716538_ss.resx">
+      <DependentUpon>202006151716538_ss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006161647542_sss.resx">
+      <DependentUpon>202006161647542_sss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
