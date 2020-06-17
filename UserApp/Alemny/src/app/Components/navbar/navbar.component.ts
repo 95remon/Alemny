@@ -68,10 +68,15 @@ export class NavbarComponent implements OnInit {
             localStorage.setItem('userImage' , data.Image);
             console.log('User ID : ' +  localStorage.getItem('userId'))
             localStorage.setItem('userType' , data.Type);
-            this.image = data.Image;
-            this.router.navigate(['/courses']);
+            this.image = data.Image;         
 
            
+
+            localStorage.setItem('user' , JSON.stringify(data));
+            let s: Iuser=JSON.parse(localStorage.getItem('user'));
+            console.log(s);
+
+            this.router.navigate(['/courses']);
           },
           
           (err) => {

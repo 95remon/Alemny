@@ -10,12 +10,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCourseComponent } from './Components/Course/create-course/create-course.component';
 import { SearchCourseResultsComponent } from './Components/search-course-results/search-course-results.component';
+import { CourseDetailsComponent } from './Components/course-details/course-details.component';
+import { ChapterComponent } from './Components/course-details/chapter/chapter.component';
+import { LessonComponent } from './Components/course-details/lesson/lesson.component';
 import { TeachersCourseComponent } from './Components/Course/teachers-course/teachers-course.component';
 
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { CoursesComponent } from './Components/Course/courses/courses.component';
 import { UpdateCourseComponent } from './Components/Course/update-course/update-course.component';
+import { ProfileComponent } from './Components/user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +28,15 @@ import { UpdateCourseComponent } from './Components/Course/update-course/update-
     SignUpComponent,
     CreateCourseComponent,
     SearchCourseResultsComponent,
+    CourseDetailsComponent,
+    ChapterComponent,
+    LessonComponent,
     TeachersCourseComponent,
     NavbarComponent,
     HomeComponent,
     CoursesComponent,
-    UpdateCourseComponent
+    UpdateCourseComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

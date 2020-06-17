@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit , AfterViewInit {
   counter2: number;
 
   constructor() {
-    this.text = "Outreach";
+    this.text = "Outreach8";
     this.counter1 = 0;
     this.counter2 = 0;
 
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit , AfterViewInit {
 
 
   ngOnInit(): void {
-    /*this.upatetText();*/
+    this.upatetText();
     
   }
 

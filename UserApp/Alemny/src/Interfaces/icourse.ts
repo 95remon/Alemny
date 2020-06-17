@@ -1,4 +1,6 @@
 export interface ICourse {
+
+  
   Code : string ;
   
   Name: string;
@@ -9,6 +11,7 @@ export interface ICourse {
 
   MinDegree: number;
   
+
   Image:string;
 
   StageID : number;

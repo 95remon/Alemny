@@ -7,5 +7,11 @@ export interface Iuser {
     Level: string,
     Gender: string,
     Address: string,
-    PhonNumber:string
+    PhoneNumber:string,
+    Password: string,
+    ConfirmPassword: string,
+    UserName: string
+
+
+
 }

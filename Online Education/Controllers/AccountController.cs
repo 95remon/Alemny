@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -20,13 +21,13 @@ namespace Online_Education.Controllers
         public async Task<IHttpActionResult> postregistration()
         {
 
-           
-                UserStore<IdentityUser> store =
-                    new UserStore<IdentityUser>(new LearningContext());
 
-                UserManager<IdentityUser> manager =
-                    new UserManager<IdentityUser>(store);
-                User user = new User();
+            UserStore<IdentityUser> store =
+                new UserStore<IdentityUser>(new LearningContext());
+
+            UserManager<IdentityUser> manager =
+                new UserManager<IdentityUser>(store);
+            User user = new User();
 
 
             string pathImage;
@@ -40,13 +41,13 @@ namespace Online_Education.Controllers
 
             user.Type = httpRequest["Type"];
             user.Name = httpRequest["Name"];
-            user.UserName = httpRequest["Name"];
+            user.UserName = httpRequest["UserName"];
             if (user.Type == "Student")
             {
                 user.Level = httpRequest["Level"];
             }
             user.Email = httpRequest["Email"];
-            
+
             user.PasswordHash = httpRequest["Password"];
             user.Address = httpRequest["Address"];
             user.PhoneNumber = httpRequest["PhoneNumber"];
@@ -65,24 +66,97 @@ namespace Online_Education.Controllers
 
             }
             IdentityResult result = await manager.CreateAsync(user, user.PasswordHash);
-                if (result.Succeeded)
+            if (result.Succeeded)
+            {
+                return Created("", "register Sucess " + user.UserName);
+            }
+            else
+            {
+                string error = "";
+                foreach (var err in result.Errors)
                 {
-                    return Created("", "register Sucess " + user.UserName);
+                    error += err + "\n";
                 }
-                else
-                {
-                    string error = "";
-                    foreach (var err in result.Errors)
-                    {
-                        error += err + "\n";
-                    }
-                    return BadRequest(error);
+                return BadRequest(error);
 
 
-                }
-            
+            }
+
 
         }
+
+
+        [HttpPut]
+        public async Task<IHttpActionResult> EditProfile()
+        {
+
+
+            UserStore<IdentityUser> store =
+                new UserStore<IdentityUser>(new LearningContext());
+
+            UserManager<IdentityUser> manager =
+                new UserManager<IdentityUser>(store);
+
+            try
+            {
+
+                string pathImage;
+                var httpRequest = HttpContext.Current.Request;
+
+
+                User user = (User)await manager.FindByIdAsync(httpRequest["ID"]);
+
+                //Upload Image
+                var postedFile = httpRequest.Files["Image"];
+
+
+                user.Type = httpRequest["Type"];
+                user.Name = httpRequest["Name"];
+                user.UserName = httpRequest["UserName"];
+                if (user.Type == "Student")
+                {
+                    user.Level = httpRequest["Level"];
+                }
+                user.Email = httpRequest["Email"];
+
+                //user.PasswordHash = httpRequest["Password"];
+                user.Address = httpRequest["Address"];
+                user.PhoneNumber = httpRequest["PhoneNumber"];
+                user.Gender = httpRequest["Gender"];
+
+                if (user.Type == "Instructor")
+                {
+                    pathImage = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
+                    pathImage += DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
+                    string filePath = "";
+                    filePath = HttpContext.Current.Server.MapPath("~/Content/Images/" + pathImage);
+                    pathImage = "http://localhost:51851/Content/Images/" + pathImage;
+
+                    user.Image = pathImage;
+                    postedFile.SaveAs(filePath);
+
+                }
+              var res=await  manager.UpdateAsync(user);
+                if (res.Succeeded)
+                    return Ok(user);
+
+                else return BadRequest();
+            }
+            catch(Exception ex)
+            {
+                
+                return BadRequest(ex.Message);
+
+
+            }
+
+
+        }
+    
+
+
+
+
         [Route("api/account/GetUserInfo/{username}/{password}")]
 
         public async Task<IHttpActionResult> GetUserInfo(string username, string password) 
@@ -107,5 +181,8 @@ namespace Online_Education.Controllers
 
 
 
+
+
     }
+
 }

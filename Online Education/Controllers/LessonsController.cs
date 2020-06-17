@@ -36,6 +36,13 @@ namespace Online_Education.Controllers
             return Ok(lesson);
         }
 
+        public List<Lesson> GetLessonsByChapter(int id)
+        {
+            List<Lesson> lessons = db.Chapters.Find(id).Lessons.ToList();
+            return lessons;
+        }
+
+
         // PUT: api/Lessons/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutLesson(int id, Lesson lesson)

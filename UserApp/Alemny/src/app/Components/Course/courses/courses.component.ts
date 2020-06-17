@@ -19,6 +19,7 @@ export class CoursesComponent implements OnInit {
 
   editCourse: FormGroup;
 
+
   constructor(
     private _CourseService: CourseService,
     private _Router: Router,
@@ -45,13 +46,15 @@ export class CoursesComponent implements OnInit {
     console.log(this.userService.userInfo);
     //this._CourseService.GetAllCourses().subscribe(
       this._CourseService.GetCoursesByUserID(localStorage.getItem('userId')).subscribe(
-      res=>{this.CoursesList=res;
-        this.CourseCount = this.CoursesList.length;
+      res=>{
+        this.CoursesList=res;
+        this.CourseCount=this.CoursesList.length;
       },
       err=>{console.log(err) ;alert(err)}
     )
+    }
+
   
-  }
 
   updateCourse(content, courseCode){
 
@@ -155,4 +158,41 @@ export class CoursesComponent implements OnInit {
   }
 
     
+  
+
+  deleteProduct(content, courseCode){
+
+    //this._prodServe.getProduct(pid).subscribe((res)=>{
+
+      this.modalService.open(content ).result.
+      then((ok)=> {
+        let deletedProd = this.CoursesList.find(prod=>prod.Code == courseCode)
+       
+        const index = this.CoursesList.indexOf(deletedProd)
+  
+        this.CoursesList.splice(index,1)
+
+        this._CourseService.DeleteCourse(courseCode).subscribe(
+          (res) => {
+            alert('deleted successfully !');
+            this._Router.navigate(['/courses']);
+            //alert(res.Id);
+          },
+    
+          (err) => {
+            console.log(err);
+          }
+        );
+
+
+        
+      
+      },
+      (cancel)=>
+      {
+        console.log(cancel)
+      }
+      )
+    
+    }
   }

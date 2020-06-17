@@ -156,11 +156,15 @@
                                 <option>Second</option>
                         </select>
 
+<div class="col-md-7 col-sm-8  d-flex justify-content-md-end ">
 
                         <label for="semester" style="margin-top: 5px;">
                                 Stage :
                         </label>
 
+</div>
+</div>
+<br>
 
                         <select id="inputState" class="form-control custom-select" [(ngModel)]="course.StageID"
                                 formControlName="StageID">
@@ -176,13 +180,38 @@
 
                         </select>
 
+                <div class="col-lg-8 col-10 " style="font-family: sf pro display,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;;">
+                        <h6 style="color:#222;margin-bottom: .5rem;font-weight: 400;font-weight:700">
+                                {{Course.Name}} 
+                        </h6>
+                        
+                               
+                               <div> {{Course.Description}} </div>
+                                <i class="fas fa-star" style="color: #eb8a2f;"></i>
+                                <i class="fas fa-star" style="color: #eb8a2f;"></i>
+                                <i class="fas fa-star" style="color: #eb8a2f;"></i>
+                                <i class="fas fa-star" style="color: #eb8a2f;"></i>
+                                <i class="fas fa-star-half-alt" style="color: #eb8a2f;"></i><br>
+                                113,902 reviews
+                                80.5 total hours 400 lectures All Levels
+                        
 
+                        <!--<button type="button">best Seller</button>-->
+                </div>
+
+                <div class="col-lg-1 col-2">
+                        <a href="#" class="btn btn-outline-primary" style="text-decoration:none;margin-bottom: 5px;">
+                                <i class="fas fa-sync-alt"></i> </a><br>
 
                         <!--Image-->
                         <label for="semester" style="margin-top: 5px;">
                                 Course Image
                         </label>
 
+                </div>
+               
+        </div>
+        
 
                         <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="validatedCustomFile"

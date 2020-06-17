@@ -50,6 +50,7 @@ namespace Online_Education.Models
 
         public virtual ICollection<Teach> Teach { get; set; }
 
-
+        [JsonIgnore]
+        public virtual ICollection<Chapter> Chapters { get; set; }
     }
 }
