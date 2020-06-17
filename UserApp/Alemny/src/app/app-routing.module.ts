@@ -7,12 +7,15 @@ import { SearchCourseResultsComponent } from './Components/search-course-results
 import { HomeComponent } from './Components/home/home.component';
 import { CoursesComponent } from './Components/Course/courses/courses.component';
 import { UpdateCourseComponent } from './Components/Course/update-course/update-course.component';
+import { ProfileComponent } from './Components/user/profile/profile.component';
 
 
 const routes: Routes = [
   {path:'UpdateCourse/:CourseCode',component:UpdateCourseComponent},
   { path:'signin' , component:SignInComponent },
   { path:'signup' , component:SignUpComponent },
+  { path:'profile' , component:ProfileComponent },
+
   {path : 'createcourse' , component : CreateCourseComponent},
   { path:'courses/:StgID/:Sem/:Subject',component:SearchCourseResultsComponent},
   { path:'home',component:HomeComponent},

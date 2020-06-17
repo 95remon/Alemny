@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthuserService } from 'src/Services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Iuser } from 'src/Interfaces/iuser';
 
 @Component({
   selector: 'app-navbar',
@@ -26,18 +27,27 @@ export class NavbarComponent implements OnInit {
 
         this.isLoginError = true;
 
-        console.log(localStorage.getItem('userToken'));
-
         this.authSer.GetUserInfo(userName, password).subscribe(
           (data) => {
-            this.authSer.userInfo = data;
+            this.authSer.userInfo = data as Iuser;
+            console.log('User Info ' + this.authSer.userInfo)
+            localStorage.setItem('userId' , data.Id);
+            console.log('User ID : ' +  localStorage.getItem('userId'))
+            localStorage.setItem('userType' , data.Type);
+
+            localStorage.setItem('user' , JSON.stringify(data));
+            let s: Iuser=JSON.parse(localStorage.getItem('user'));
+            console.log(s);
+
+            this.router.navigate(['/courses']);
           },
+          
           (err) => {
             alert(err);
           }
         );
 
-        this.router.navigate(['/courses']);
+        
       },
       (err: HttpErrorResponse) => {
         this.isLoginError = true;

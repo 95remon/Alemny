@@ -130,13 +130,9 @@
     <Compile Include="Controllers\ChaptersController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\LessonsController.cs" />
-    <Compile Include="Migrations\202006151922311_s.cs" />
-    <Compile Include="Migrations\202006151922311_s.Designer.cs">
-      <DependentUpon>202006151922311_s.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006152020202_step2.cs" />
-    <Compile Include="Migrations\202006152020202_step2.Designer.cs">
-      <DependentUpon>202006152020202_step2.cs</DependentUpon>
+    <Compile Include="Migrations\202006161347484_s.cs" />
+    <Compile Include="Migrations\202006161347484_s.Designer.cs">
+      <DependentUpon>202006161347484_s.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -173,11 +169,8 @@
     <Folder Include="UserApp\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006151922311_s.resx">
-      <DependentUpon>202006151922311_s.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006152020202_step2.resx">
-      <DependentUpon>202006152020202_step2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006161347484_s.resx">
+      <DependentUpon>202006161347484_s.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

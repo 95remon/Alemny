@@ -16,6 +16,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { CoursesComponent } from './Components/Course/courses/courses.component';
 import { UpdateCourseComponent } from './Components/Course/update-course/update-course.component';
+import { ProfileComponent } from './Components/user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UpdateCourseComponent } from './Components/Course/update-course/update-
     NavbarComponent,
     HomeComponent,
     CoursesComponent,
-    UpdateCourseComponent
+    UpdateCourseComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

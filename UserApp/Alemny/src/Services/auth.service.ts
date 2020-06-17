@@ -77,6 +77,39 @@ export class AuthuserService {
 
   }
 
+  
+  
+  editProfile(user:Iuser,image:File):Observable<Iuser>
+  {
+    // const httpOptions =  new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //    'Accept': ' /'
+    //     });
+    // return this.httpClient.post(`${environment.ApiURl}/Account`, user, { headers: httpOptions });
+
+    const Formdata = new FormData();
+    Formdata.append('ID',user.Id);
+
+    Formdata.append('Type',user.Type);
+    Formdata.append('Name',user.Name);
+    Formdata.append('UserName',user.UserName);
+    Formdata.append('Email',user.Email);
+
+    Formdata.append('Level',user.Level);
+    // Formdata.append('Password',user.Password);
+    // Formdata.append('ConfirmPassword',user.ConfirmPassword);
+    Formdata.append('Address',user.Address);
+    Formdata.append('PhoneNumber',user.PhoneNumber);
+    Formdata.append('Gender',user.Gender);
+    
+    Formdata.append("Image",image);
+
+
+    return this.httpClient.put<Iuser>(`${environment.ApiURl}/Account`,Formdata);
+
+    
+  }
+
 
 }
 
