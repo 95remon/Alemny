@@ -40,7 +40,7 @@ namespace Online_Education.Controllers
         // GET: api/Courses/
         [ResponseType(typeof(IQueryable<Course>))]
         [Route("api/courses/{StgID}/{Sem}/{Subject}")]
-        public async Task<IHttpActionResult> GetCourse(int StgID, semester Sem, string Subject)
+       /* public async Task<IHttpActionResult> GetCourse(int StgID, semester Sem, string Subject)
         {
             List<Course> courses = await db.Courses.Where(c=>c.StageID==StgID&&c.Semester==Sem&&c.Name.ToLower()==Subject.ToLower()).ToListAsync();
             if (courses == null)
@@ -50,7 +50,7 @@ namespace Online_Education.Controllers
 
             return Ok(courses);
         }
-
+        */
         // GET: api/Courses/5
         [ResponseType(typeof(Course))]
         public async Task<IHttpActionResult> GetCourse(string id)
@@ -78,8 +78,9 @@ namespace Online_Education.Controllers
             course.MaxDegree = int.Parse(httpRequest["MaxDegree"]);
             course.MinDegree = int.Parse(httpRequest["MinDegree"]);
             course.StageID = int.Parse(httpRequest["StageID"]);
-            semester sem =  (semester)Enum.Parse(typeof(semester), httpRequest["Semester"]);
-            course.Semester = sem;
+            // semester sem =  (semester)Enum.Parse(typeof(semester), httpRequest["Semester"]);
+            //course.Semester = sem;
+            course.Semester = httpRequest["Semester"];
             //Custom filename
             if (postedFile != null)
             {
@@ -149,8 +150,9 @@ namespace Online_Education.Controllers
             course.MaxDegree = int.Parse(httpRequest["MaxDegree"]);
             course.MinDegree = int.Parse(httpRequest["MinDegree"]);
             course.StageID= int.Parse(httpRequest["StageID"]);
-            semester sem = (semester)Enum.Parse(typeof(semester), httpRequest["Semester"]);
-            course.Semester = sem;
+            //  semester sem = (semester)Enum.Parse(typeof(semester), httpRequest["Semester"]);
+            course.Semester = httpRequest["Semester"];
+            //course.Semester = sem;
             //Custom filename
             pathImage = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
             pathImage += DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
@@ -170,9 +172,12 @@ namespace Online_Education.Controllers
             try
             {
                 db.Courses.Add(course);
+                db.SaveChanges();
+
                 Teach teach = new Teach();
                 teach.CourseCode = course.Code;
                 teach.TeacherID = httpRequest["TeacherID"];
+
                 db.Teach.Add(teach);
 
                 db.SaveChanges();

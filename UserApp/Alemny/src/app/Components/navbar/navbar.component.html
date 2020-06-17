@@ -1,0 +1,209 @@
+<div class="row" style="background-color: #232637;">
+    <div class="container">
+        <div class="col-lg-12">
+            <div style="display: flex;height:50px; justify-content: space-between;align-items: center;color: white;">
+                <div style="height: 20px;border:1ps solid white">
+                    <p style="font-size: 16px;">
+                        <span style="padding-right: 15px;"><i class="fas fa-envelope"></i> info@domain.com</span>
+                        <span style="border-right:2px solid white; "> </span>
+                        <span><i class="fas fa-phone-square-alt" style="padding-left: 15px;;"></i> +880166 253 232</span>
+                    </p>
+                </div>
+                <div style="height: 20px;">
+                    <p>
+                        <a href="#" style="color: white;font-size: 16px; margin-right: 25px;cursor: pointer;"
+                             data-toggle="modal" data-target="#loginModal"> 
+                            <i class="fas fa-sign-in-alt"></i> Login</a>
+                        <span style="border:1px solid white"> </span>
+                        <a href="#" style="color: white;font-size: 16px;margin-left: 25px;">Register</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-lg-12">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;padding: 0px;">
+            <div class="col-lg-5  col-5">
+                <a class="navbar-brand" href="#">Alemny</a>
+            </div>
+            <div class="col-lg-6 col-7">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Level</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Level 1</a>
+                                <a class="dropdown-item" href="#">Level 2</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Level 3</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+
+
+<div  #loginForm class="modal" id="loginModal" style="top:15%">
+    <div class="modal-dialog">
+        <div class="modal-content">
+  
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login to Account
+                </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+  
+            <!-- Modal body -->
+            <div class="modal-body">
+                <!--action="/Account/Login"-->
+                <form method="post"  style="width: 100%;">
+                
+                    <div *ngIf="isLoginError" id="validateForm" style="padding-bottom:10px">
+                        <span class="text-danger">
+                            User name and password are not match
+                        </span>
+                    </div>
+                    <div class="form-horizontal">
+                        
+  
+                        <div class="row form-group">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">Username</label>
+  
+                                </div>
+  
+                            </div>
+  
+                            <div class="col-md-9">
+  
+                                <input type="text" class="form-control" id="UserName" placeholder="Enter username" name="UserName" #uname required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </div>
+  
+                        <div class="row form-group">
+                            <div class="col-lg-3">
+                                <label class="control-label" for="password">Password</label>
+  
+                            </div>
+  
+                            <div class="col-lg-9">
+  
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" #psd required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </div>
+  
+                        <div class="row form-group">
+                            <div class="col-lg-3">
+                            </div>
+  
+                            <div class="col-lg-9">
+                                <input type="checkbox" class="checkbox-inline" name="rememberMe" />
+                                <label for="rememberMe" style="margin-left: 5px;">Remember Me</label>
+                            </div>
+                        </div>
+  
+                        <hr />
+                        <div class="row" style="padding-bottom:10px">
+                            <div class="col-lg-3">
+                                <label class="control-label">Login With</label>
+                            </div>
+                            <div class="col-lg-9" style="margin-top:-5px">
+                                <a href="" style="font-size:20px;margin-right: 5px;">
+                                    <i class="fab fa-facebook-square" style="padding: 15px;background: #0077ff;color: white;
+                                            border-radius: 4px;"></i>
+                                </a>
+                                <a href="" style="font-size:20px;;margin-right: 5px;">
+                                    <i class="fab fa-twitter-square" style="padding: 15px;background: #0d95bf;color: white;
+                                            border-radius: 4px;"></i>
+                                </a>
+                                <a href="" style="font-size:20px;">
+                                    <i class="fab fa-google-plus-square" style="padding: 15px;background: #e64847;color: white;
+                                            border-radius: 4px;"></i>
+                                </a>
+  
+                            </div>
+                        </div>
+                    </div>
+  
+  
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close" #close><strong>&times;</strong> Close</button>
+                        <a [routerLink]="['/signup']"  onclick="getElementById('close').click()" routerLinkActive="router-link-active"  type="button" class="btn btn-success" role="button" > <i class="fas fa-user"></i> Register</a>
+                        <button type="button" class="btn btn-primary" (click)="checkAccount(loginForm ,uname.value , psd.value)">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Login
+                        </button>
+                    </div>
+  
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+<!--
+<ng-template #mymodal let-modal>
+
+    <div class="modal-header">
+  
+      <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+  
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+  
+        <span aria-hidden="true">×</span>
+  
+      </button>
+  
+    </div>
+  
+    <div class="modal-body">
+  
+      This is example from ItSolutionStuff.com
+  
+    </div>
+  
+    <div class="modal-footer">
+  
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+  
+    </div>
+  
+  </ng-template>
+
+  -->

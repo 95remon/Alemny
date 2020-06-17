@@ -13,6 +13,10 @@ import { SearchCourseResultsComponent } from './Components/search-course-results
 import { CourseDetailsComponent } from './Components/course-details/course-details.component';
 import { ChapterComponent } from './Components/course-details/chapter/chapter.component';
 import { LessonComponent } from './Components/course-details/lesson/lesson.component';
+import { TeachersCourseComponent } from './Components/Course/teachers-course/teachers-course.component';
+
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { HomeComponent } from './Components/home/home.component';
 import { CoursesComponent } from './Components/Course/courses/courses.component';
 import { UpdateCourseComponent } from './Components/Course/update-course/update-course.component';
 
@@ -26,6 +30,9 @@ import { UpdateCourseComponent } from './Components/Course/update-course/update-
     CourseDetailsComponent,
     ChapterComponent,
     LessonComponent,
+    TeachersCourseComponent,
+    NavbarComponent,
+    HomeComponent,
     CoursesComponent,
     UpdateCourseComponent
   ],
@@ -35,7 +42,8 @@ import { UpdateCourseComponent } from './Components/Course/update-course/update-
     NgbModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule, 
+     
   ],
   providers: [],
   bootstrap: [AppComponent]
