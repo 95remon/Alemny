@@ -177,7 +177,6 @@
     <Folder Include="UserApp\" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202006151607185_s.resx">
       <DependentUpon>202006151607185_s.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,16 +185,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006161647542_sss.resx">
       <DependentUpon>202006161647542_sss.cs</DependentUpon>
-||||||| merged common ancestors
-    <EmbeddedResource Include="Migrations\202006141932131_fiest.resx">
-      <DependentUpon>202006141932131_fiest.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="Migrations\202006151922311_s.resx">
-      <DependentUpon>202006151922311_s.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006152020202_step2.resx">
-      <DependentUpon>202006152020202_step2.cs</DependentUpon>
->>>>>>> 8cedd81e966f5e38c16a64582dcdea33e6811f9c
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
