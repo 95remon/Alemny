@@ -13,13 +13,13 @@ namespace Online_Education.Models
         public string TeacherID { get; set; }
 
         [Key, Column(Order = 1)]
-        public string CourseCode { get; set; }
+        public int CourseId { get; set; }
 
 
         [ForeignKey("TeacherID")]
         public virtual User Teacher { get; set; }
 
-        [ForeignKey("CourseCode")]
+        [ForeignKey("CourseId")]
         public virtual Course Course { get; set; }
     }
 }

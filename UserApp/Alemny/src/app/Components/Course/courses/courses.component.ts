@@ -95,22 +95,23 @@ export class CoursesComponent implements OnInit {
     );
   }
 
-  deleteCourse(content, courseCode){
+  deleteCourse(content, courseId){
 
     //this._prodServe.getProduct(pid).subscribe((res)=>{
 
       this.modalService.open(content ).result.
       then((ok)=> {
-        let deletedProd = this.CoursesList.find(prod=>prod.Code == courseCode)
+
+        let course = this.CoursesList.find(course=>course.Id == courseId)
        
-        const index = this.CoursesList.indexOf(deletedProd)
+        const index = this.CoursesList.indexOf(course)
   
         this.CoursesList.splice(index,1)
 
-        this._CourseService.DeleteCourse(courseCode).subscribe(
+        this._CourseService.DeleteCourse(courseId).subscribe(
           (res) => {
-            alert('deleted successfully !');
-            this._Router.navigate(['/courses']);
+           
+            console.log("Delete Successfuly")
             //alert(res.Id);
           },
     

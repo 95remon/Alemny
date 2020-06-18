@@ -87,6 +87,7 @@ namespace Online_Education.Controllers
 
 
         [HttpPut]
+        [Route("EditProfile")]
         public async Task<IHttpActionResult> EditProfile()
         {
 
@@ -107,7 +108,7 @@ namespace Online_Education.Controllers
                 User user = (User)await manager.FindByIdAsync(httpRequest["ID"]);
 
                 //Upload Image
-                var postedFile = httpRequest.Files["Image"];
+                //var postedFile = httpRequest.Files["Image"];
 
 
                 user.Type = httpRequest["Type"];
@@ -124,27 +125,27 @@ namespace Online_Education.Controllers
                 user.PhoneNumber = httpRequest["PhoneNumber"];
                 user.Gender = httpRequest["Gender"];
 
-                if (user.Type == "Instructor")
-                {
-                    pathImage = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
-                    pathImage += DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
-                    string filePath = "";
-                    filePath = HttpContext.Current.Server.MapPath("~/Content/Images/" + pathImage);
-                    pathImage = "http://localhost:51851/Content/Images/" + pathImage;
+                //if (user.Type == "Instructor")
+                //{
+                //    pathImage = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
+                //    pathImage += DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
+                //    string filePath = "";
+                //    filePath = HttpContext.Current.Server.MapPath("~/Content/Images/" + pathImage);
+                //    pathImage = "http://localhost:51851/Content/Images/" + pathImage;
 
-                    user.Image = pathImage;
-                    postedFile.SaveAs(filePath);
+                //    user.Image = pathImage;
+                //    postedFile.SaveAs(filePath);
 
-                }
-              var res=await  manager.UpdateAsync(user);
+                //}
+                var res = await manager.UpdateAsync(user);
                 if (res.Succeeded)
                     return Ok(user);
 
                 else return BadRequest();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                
+
                 return BadRequest(ex.Message);
 
 
@@ -152,7 +153,62 @@ namespace Online_Education.Controllers
 
 
         }
-    
+
+
+        [HttpPut]
+        [Route("EditImage")]
+        public async Task<IHttpActionResult> editimg()
+        {
+
+
+            UserStore<IdentityUser> store =
+                new UserStore<IdentityUser>(new LearningContext());
+
+            UserManager<IdentityUser> manager =
+                new UserManager<IdentityUser>(store);
+
+            try
+            {
+
+                string pathImage;
+                var httpRequest = HttpContext.Current.Request;
+
+
+                User user = (User)await manager.FindByIdAsync(httpRequest["uid"]);
+
+                //Upload Image
+                var postedFile = httpRequest.Files["Image"];
+
+
+
+
+                pathImage = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
+                pathImage += DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
+                string filePath = "";
+                filePath = HttpContext.Current.Server.MapPath("~/Content/Images/" + pathImage);
+                pathImage = "http://localhost:51851/Content/Images/" + pathImage;
+
+                user.Image = pathImage;
+                postedFile.SaveAs(filePath);
+
+
+                var res = await manager.UpdateAsync(user);
+                if (res.Succeeded)
+                    return Ok(user);
+
+                else return BadRequest();
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+
+
+            }
+
+
+        }
+
 
 
 

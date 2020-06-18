@@ -11,9 +11,12 @@ import { Iuser } from 'src/Interfaces/iuser';
   providedIn: 'root'
 })
 export class AuthuserService {
+  
   userInfo:Iuser;
 
   isLogin : boolean;
+
+
 
   constructor(private httpClient: HttpClient) { 
     this.isLogin = false;
@@ -83,7 +86,7 @@ export class AuthuserService {
 
   
   
-  editProfile(user:Iuser,image:File):Observable<Iuser>
+  editProfile(user:Iuser):Observable<Iuser>
   {
     // const httpOptions =  new HttpHeaders({
     //   'Content-Type': 'application/json',
@@ -106,14 +109,34 @@ export class AuthuserService {
     Formdata.append('PhoneNumber',user.PhoneNumber);
     Formdata.append('Gender',user.Gender);
     
-    Formdata.append("Image",image);
+    // Formdata.append("Image",image);
 
 
-    return this.httpClient.put<Iuser>(`${environment.ApiURl}/Account`,Formdata);
+    return this.httpClient.put<Iuser>(`${environment.URL}/EditProfile`,Formdata);
 
     
   }
 
+  editProfileImage(user:Iuser,image:File):Observable<Iuser>
+  {
+    // const httpOptions =  new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //    'Accept': ' /'
+    //     });
+    // return this.httpClient.post(`${environment.ApiURl}/Account`, user, { headers: httpOptions });
+
+    const Formdata = new FormData();
+   
+    Formdata.append('uid',user.Id);
+
+    Formdata.append('usertype',user.Type);
+    Formdata.append("Image",image);
+
+
+    return this.httpClient.put<Iuser>(`${environment.URL}/EditImage`,Formdata);
+
+    
+  }
 
 }
 

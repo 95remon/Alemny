@@ -15,9 +15,9 @@ namespace Online_Education.Models
 
         public string Description { get; set; }
 
-        public string CourseCode { get; set; }
+        public int CourseId { get; set; }
 
-        [ForeignKey("CourseCode")]
+        [ForeignKey("CourseId")]
         public virtual Course Course { get; set; }
 
         [JsonIgnore]

@@ -49,9 +49,9 @@ constructor(private _courseSer : CourseService,private _ActivatedRoute:Activated
       StageID: ['', [Validators.required]],
      
     });
-    this.CourseCode = this._ActivatedRoute.snapshot.params["CourseCode"];
+    this.CourseCode = this._ActivatedRoute.snapshot.params["CourseId"];
 
-    this._courseSer.GetCourseByCode(this.CourseCode)
+    this._courseSer.GetCourseByCode(parseInt(this.CourseCode))
     .subscribe(
      res => {
        this.course = res,

@@ -62,12 +62,21 @@ console.log(    this.account);
     if (event.target.files && event.target.files[0])
      {
       this.InstructorImage= event.target.files[0];
+      this.user.editProfileImage(this.account,this.InstructorImage).subscribe(
+        (data: any) => {
+          localStorage.setItem('user',JSON.stringify(data))
+          this.account=JSON.parse(localStorage.getItem('user'));
+  
+          console.log(data);
+        },
+        (err) => console.log(err)
+      );
     }
   
   }
 
   edit() {
-    this.user.editProfile(this.account,this.InstructorImage).subscribe(
+    this.user.editProfile(this.account).subscribe(
       (data: any) => {
         localStorage.setItem('user',JSON.stringify(data))
         this.account=JSON.parse(localStorage.getItem('user'));

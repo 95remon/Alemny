@@ -17,6 +17,7 @@ namespace Online_Education.Models
     public class Course
     {
         [Key]
+        public int Id { get; set; }
         [Required]
         public string Code { get; set; }
         [Required]

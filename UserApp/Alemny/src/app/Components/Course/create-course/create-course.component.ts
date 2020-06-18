@@ -29,6 +29,7 @@ export class CreateCourseComponent implements OnInit {
   ,{id:6,name:'Stage6'},{id:7,name:'Stage7'},{id:8,name:'Stage8'}];
 
     this.course = {
+      Id :  0,
       Code:'',
       Name: '',
       Description:'',

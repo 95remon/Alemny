@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Routing;
 using Online_Education.Models;
 
 namespace Online_Education.Controllers
@@ -53,9 +54,10 @@ namespace Online_Education.Controllers
          }
          */
         // GET: api/Courses/5
-        [Route("api/courses/{id}")]
-        [ResponseType(typeof(Course))]
-        public async Task<IHttpActionResult> GetCourse(string id)
+        //[Route("api/courses/{id}")]
+        //[ResponseType(typeof(Course))]
+        [Route("GetCourse/{id}")]
+        public async Task<IHttpActionResult> GetCourse(int id)
         {
             Course course = await db.Courses.FindAsync(id);
             if (course == null)
@@ -179,7 +181,7 @@ namespace Online_Education.Controllers
                 db.SaveChanges();
 
                 Teach teach = new Teach();
-                teach.CourseCode = course.Code;
+                teach.CourseId = course.Id;
                 teach.TeacherID = httpRequest["TeacherID"];
 
                 db.Teach.Add(teach);
@@ -196,11 +198,11 @@ namespace Online_Education.Controllers
         }
 
         // DELETE: api/Courses/5
-        [ResponseType(typeof(Course))]
-        [HttpDelete , Route("api/courses/{CourseCode}")]
-        public  IHttpActionResult DeleteCourse(string CourseCode)
+        //[ResponseType(typeof(Course))]
+        //[HttpDelete , Route("api/Courses/{id}")]
+        public  IHttpActionResult DeleteCourse(int id)
         {
-            Course course =  db.Courses.Find(CourseCode);
+            Course course =  db.Courses.Find(id);
             if (course == null)
             {
                 return NotFound();
@@ -225,5 +227,16 @@ namespace Online_Education.Controllers
         {
             return db.Courses.Count(e => e.Code == id) > 0;
         }
+
+
+        /**/
+
+            [Route("AllCourses/{code}/{stage}")]
+        public IQueryable<Course> GetCoursesByCodeAndStage(string code , int stage)
+        {
+            return db.Courses.Where(c => c.Code == code && c.StageID == stage);
+        }
+
     }
+
 }

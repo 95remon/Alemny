@@ -37,9 +37,9 @@ namespace Online_Education.Controllers
             return Ok(chapter);
         }
 
-        public List<Chapter> GetChaptersByCourseCode(string id)
+        public List<Chapter> GetChaptersByCourseCode(int id)
         {
-            var courseChapters = db.Chapters.Where(c => c.CourseCode == id).ToList();
+            var courseChapters = db.Chapters.Where(c => c.CourseId == id).ToList();
             
             return courseChapters;
 

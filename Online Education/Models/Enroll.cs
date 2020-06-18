@@ -14,14 +14,14 @@ namespace Online_Education.Models
         public string StudentID { get; set; }
 
         [Key, Column(Order = 1)]
-        public string CourseCode { get; set; }
+        public int CourseId { get; set; }
 
         public DateTime EnrollDate { get; set; }
 
         [ForeignKey("StudentID")]
         public virtual User Student { get; set; }
 
-        [ForeignKey("CourseCode")]
+        [ForeignKey("CourseId")]
         public virtual Course Course { get; set; }
     }
 }

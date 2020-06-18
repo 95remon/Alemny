@@ -31,6 +31,7 @@ export class ChapterComponent implements OnInit {
     this.chapter = {
       ID:0,
       Name: '',
+      CourseId : parseInt(this._ActivatedRoute.snapshot.params["CourseId"]),
       Description:'',
       CourseCode:this._ActivatedRoute.snapshot.params["CourseCode"]
     };
@@ -41,9 +42,9 @@ export class ChapterComponent implements OnInit {
       Name:['', [Validators.required, Validators.minLength(3)]],
       Description: ['', [Validators.required, Validators.minLength(3)]]
     });
-    this.CourseCode = this._ActivatedRoute.snapshot.params["CourseCode"];
+    this.CourseCode = this._ActivatedRoute.snapshot.params["CourseId"];
 
-    this._courseSer.GetCourseByCode(this.CourseCode)
+    this._courseSer.GetCourseByCode(parseInt(this.CourseCode))
     .subscribe(
      res => {
        this.course = res,
@@ -53,7 +54,8 @@ export class ChapterComponent implements OnInit {
       )
      //this.chapter.CourseCode=this.course.Code;
 
-     this._chapterSer.GetChaptersByCourseCode(this._ActivatedRoute.snapshot.params["CourseCode"]).subscribe(
+      this.CourseCode = this._ActivatedRoute.snapshot.params["CourseId"]
+     this._chapterSer.GetChaptersByCourseCode(parseInt(this.CourseCode)).subscribe(
       res => {
         this.ChaptersList = res,
           console.log(res)
@@ -64,10 +66,11 @@ export class ChapterComponent implements OnInit {
   }
 
   addChapter(Name:string,Description:string) {
+    console.log('Chapter Code ' + this._ActivatedRoute.snapshot.params["CourseId"])
     this._chapterSer.createChapter(this.chapter).subscribe
      (
        succ=>{
-        this._chapterSer.GetChaptersByCourseCode(this._ActivatedRoute.snapshot.params["CourseCode"]).subscribe(
+        this._chapterSer.GetChaptersByCourseCode(parseInt(this._ActivatedRoute.snapshot.params["CourseId"])).subscribe(
           res => {
             this.ChaptersList = res,
               console.log(res)

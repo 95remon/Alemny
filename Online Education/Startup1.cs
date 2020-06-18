@@ -19,6 +19,9 @@ namespace Online_Education
         public void Configuration(IAppBuilder app)
         {
             app.UseCors(CorsOptions.AllowAll);
+
+            
+
             //use middle creat token cookie oauth
             app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions()
             {
@@ -40,18 +43,23 @@ namespace Online_Education
 
             HttpConfiguration config = new HttpConfiguration();
 
+            
+            
+            
+
+
             config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
                 "DefaultApi", "api/{controller}/{id}",
                 new { id = RouteParameter.Optional });
 
-            // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
-
-           /* config.Routes.MapHttpRoute(
+            config.Routes.MapHttpRoute(
                 name: "ActionApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
-            );*/
+            );
+
+
             app.UseWebApi(config);
         }
     }

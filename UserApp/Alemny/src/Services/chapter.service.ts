@@ -10,7 +10,7 @@ import { Observable, Subject, BehaviorSubject } from 'rxjs';
 export class ChapterService {
 
 
-  ChapterInfo:IChapter={CourseCode:"",Description:"",Name:"",ID:null};
+  ChapterInfo:IChapter={CourseCode:"",Description:"",CourseId :0 , Name:"",ID:null};
 
   //ChapterInfo:Subject<IChapter>=new Subject<IChapter>();
 
@@ -21,6 +21,7 @@ export class ChapterService {
 
 
   private messageSource=new BehaviorSubject('');
+  
   currentMessage=this.messageSource.asObservable();
 
   changeChapter(Message:string)
@@ -37,7 +38,7 @@ export class ChapterService {
   createChapter(chapter: IChapter) {
     return this.httpClient.post(`${environment.ApiURl}/Chapters`,chapter);
   }
-  GetChaptersByCourseCode(CourseCode:string):Observable<IChapter[]>
+  GetChaptersByCourseCode(CourseCode:number):Observable<IChapter[]>
   {
     return this.httpClient.get<IChapter[]>(`${environment.ApiURl}/Chapters/GetChaptersByCourseCode/${CourseCode}`);
   }

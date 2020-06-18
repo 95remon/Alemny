@@ -11,7 +11,4 @@ export interface Iuser {
     Password: string,
     ConfirmPassword: string,
     UserName: string
-
-
-
 }

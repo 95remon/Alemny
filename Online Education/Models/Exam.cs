@@ -19,7 +19,7 @@ namespace Online_Education.Models
 
         public int TotalDegree { get; set; } 
 
-        public string CourseId { get; set; }
+        public int CourseId { get; set; }
 
         [ForeignKey("CourseId")]
         public virtual Course Course { get; set; }

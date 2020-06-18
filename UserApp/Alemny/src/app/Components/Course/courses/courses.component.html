@@ -42,7 +42,7 @@
                                 113,902 reviews
                                 80.5 total hours 400 lectures All Levels<br>
 
-                                <a role="button" routerLink="/coursedetails/{{Course.Code}}"
+                                <a role="button" routerLink="/coursedetails/{{Course.Id}}"
                                         class="btn btn-info">Details</a>
 
 
@@ -52,12 +52,12 @@
 
                         <div class="col-lg-1 col-2">
                                 <a class="btn btn-outline-primary" style="text-decoration:none;margin-bottom: 5px;"
-                                        routerLink="/UpdateCourse/{{Course.Code}}"
+                                        routerLink="/UpdateCourse/{{Course.Id}}"
                                         routerLinkActive="router-link-active">
                                         <i class=" fas fa-sync-alt"></i> </a><br>
 
                                 <a class="btn btn-outline-danger" style="text-decoration:none"
-                                        (click)="deleteCourse(confirmDelete,Course.Code)">
+                                        (click)="deleteCourse(confirmDelete,Course.Id)">
                                         <i class="far fa-trash-alt"></i>
                                 </a>
 

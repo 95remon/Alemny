@@ -46,7 +46,7 @@ export class CourseService {
      return this.httpClient.get<ICourse[]>(`${environment.ApiURl}/courses`);//,{headers:httpOptions1});
   }
 
-  GetCourseByCode(courseCode:string):Observable<ICourse>
+  GetCourseByCode(courseId:number):Observable<ICourse>
   {
    
       // if(sessionStorage.getItem('access_token') !=null)
@@ -54,7 +54,7 @@ export class CourseService {
       //   var httpOptions1 =  new HttpHeaders({ 'Authorization':'Bearer '+sessionStorage.getItem('access_token')});
       
       // }   
-      return this.httpClient.get<ICourse>(`${environment.ApiURl}/Courses/${courseCode}`)//,{headers:httpOptions1});
+      return this.httpClient.get<ICourse>(`${environment.URL}/GetCourse/${courseId}`)//,{headers:httpOptions1});
       
     
   }
@@ -82,14 +82,14 @@ export class CourseService {
 }
 
 
-DeleteCourse(CourseCode:string)
+DeleteCourse(CourseId:number)
 {
   // if(sessionStorage.getItem('access_token') !=null)
   //   {
   //     var httpOptions1 =  new HttpHeaders({ 'Authorization':'Bearer '+sessionStorage.getItem('access_token')});
     
   //   } 
-  return this.httpClient.delete<ICourse>(`${environment.ApiURl}/Courses/${CourseCode}`);//,{headers:httpOptions1})
+  return this.httpClient.delete<ICourse>(`${environment.ApiURl}/Courses/${CourseId}`);//,{headers:httpOptions1})
 
 }
 
@@ -97,6 +97,10 @@ GetCoursesByUserID(userID:string):Observable<ICourse[]>
 {
   return this.httpClient.get<ICourse[]>(`${environment.ApiURl}/Courses/GetCoursesByUserID/${userID}`)//,{headers:httpOptions1});
 
+}
+
+GetCoursesByCodeAndStage(code:string , stage:number){
+  return this.httpClient.get<ICourse[]>(`${environment.URL}/AllCourses/${code}/${stage}`) 
 }
 
 }

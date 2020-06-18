@@ -20,6 +20,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { CoursesComponent } from './Components/Course/courses/courses.component';
 import { UpdateCourseComponent } from './Components/Course/update-course/update-course.component';
 import { ProfileComponent } from './Components/user/profile/profile.component';
+import { StudentCoursesComponent } from './Components/Student/student-courses/student-courses.component';
+import { AllCoursesInCategoryComponent } from './Components/Student/all-courses-in-category/all-courses-in-category.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ProfileComponent } from './Components/user/profile/profile.component';
     HomeComponent,
     CoursesComponent,
     UpdateCourseComponent,
-    ProfileComponent
+    ProfileComponent,
+    StudentCoursesComponent,
+    AllCoursesInCategoryComponent
   ],
   imports: [
     BrowserModule,
