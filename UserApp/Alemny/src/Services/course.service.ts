@@ -4,6 +4,8 @@ import { ICourse } from 'src/Interfaces/icourse';
 import { environment } from 'src/environments/environment';
 import { Observable, observable } from 'rxjs';
 import { AuthuserService } from 'src/Services/auth.service';
+import { Iuser } from 'src/Interfaces/iuser';
+import { CourseTeacher } from 'src/Interfaces/course-teacher';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +23,11 @@ export class CourseService {
     Coursefd.append('StageID',course.StageID.toString());
     Coursefd.append('Semester',course.Semester.toString());
     Coursefd.append("Image",CourseImage);
-    Coursefd.append("TeacherID",this.userService.userInfo.Id);
+    
+    let s: Iuser=JSON.parse(localStorage.getItem('user'));
+
+    Coursefd.append("TeacherID",s.Id);
+    //Coursefd.append("TeacherID",this.userService.userInfo.Id);
 
 
 
@@ -99,8 +105,8 @@ GetCoursesByUserID(userID:string):Observable<ICourse[]>
 
 }
 
-GetCoursesByCodeAndStage(code:string , stage:number){
-  return this.httpClient.get<ICourse[]>(`${environment.URL}/AllCourses/${code}/${stage}`) 
+GetCoursesByCodeAndStage(code:string , stage:string){
+  return this.httpClient.get<CourseTeacher[]>(`${environment.URL}/AllCourses/${code}/${stage}`) 
 }
 
 }

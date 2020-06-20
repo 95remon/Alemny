@@ -138,6 +138,7 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Chapter.cs" />
     <Compile Include="Models\Choices.cs" />
+    <Compile Include="Models\CourseTeacherDTO.cs" />
     <Compile Include="Models\Enroll.cs" />
     <Compile Include="Models\ExamQuestion.cs" />
     <Compile Include="Models\Course.cs" />

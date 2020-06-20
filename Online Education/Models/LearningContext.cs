@@ -35,9 +35,11 @@ namespace Online_Education.Models
         public virtual DbSet<Teach> Teach { get; set; }
 
         public virtual DbSet<Chapter> Chapters { get; set; }
+
         public virtual DbSet<User> User { get; set; }
 
-
         public virtual DbSet<Lesson> Lessons { get; set; }
+
+        public virtual DbSet<Stage> Stages { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace Online_Education.Controllers
 
         public List<Course> GetCoursesByUserID(string id)
         {
-            var coursesteached = db.Teach.Where(t=>t.TeacherID==id).ToList();
+            var coursesteached = db.Teach.Where(t => t.TeacherID == id).ToList();
             List<Course> courses = new List<Course>();
             for (int i = 0; i < coursesteached.Count(); i++)
             {
@@ -71,10 +71,10 @@ namespace Online_Education.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutCourse()
         {
-            
+
             Course course = new Course();
             string pathImage;
-            var httpRequest =  HttpContext.Current.Request;
+            var httpRequest = HttpContext.Current.Request;
 
             //Upload Image
             course.Code = httpRequest["Code"];
@@ -111,7 +111,7 @@ namespace Online_Education.Controllers
                 oldCourse.Name = course.Name;
                 oldCourse.Description = course.Description;
                 oldCourse.MaxDegree = course.MaxDegree;
-               
+
                 oldCourse.MinDegree = course.MinDegree;
                 oldCourse.StageID = course.StageID;
                 oldCourse.Semester = course.Semester;
@@ -120,7 +120,7 @@ namespace Online_Education.Controllers
                     oldCourse.Image = course.Image;
                 }
 
-                 db.SaveChanges();
+                db.SaveChanges();
 
                 return StatusCode(HttpStatusCode.NoContent);
 
@@ -130,11 +130,11 @@ namespace Online_Education.Controllers
                 return BadRequest(ex.Message);//400
 
             }
-            
+
         }
 
-           
-        
+
+
 
         // POST: api/Courses
         [ResponseType(typeof(Course))]
@@ -146,7 +146,7 @@ namespace Online_Education.Controllers
             var httpRequest = HttpContext.Current.Request;
 
 
-            
+
             //Upload Image
             var postedFile = httpRequest.Files["Image"];
 
@@ -155,7 +155,7 @@ namespace Online_Education.Controllers
             course.Description = httpRequest["Description"];
             course.MaxDegree = int.Parse(httpRequest["MaxDegree"]);
             course.MinDegree = int.Parse(httpRequest["MinDegree"]);
-            course.StageID= int.Parse(httpRequest["StageID"]);
+            course.StageID = int.Parse(httpRequest["StageID"]);
             //  semester sem = (semester)Enum.Parse(typeof(semester), httpRequest["Semester"]);
             course.Semester = httpRequest["Semester"];
             //course.Semester = sem;
@@ -200,9 +200,9 @@ namespace Online_Education.Controllers
         // DELETE: api/Courses/5
         //[ResponseType(typeof(Course))]
         //[HttpDelete , Route("api/Courses/{id}")]
-        public  IHttpActionResult DeleteCourse(int id)
+        public IHttpActionResult DeleteCourse(int id)
         {
-            Course course =  db.Courses.Find(id);
+            Course course = db.Courses.Find(id);
             if (course == null)
             {
                 return NotFound();
@@ -231,12 +231,45 @@ namespace Online_Education.Controllers
 
         /**/
 
-            [Route("AllCourses/{code}/{stage}")]
-        public IQueryable<Course> GetCoursesByCodeAndStage(string code , int stage)
+        [Route("AllCourses/{code}/{stageName}")]
+        public List<CourseTeacherDTO> GetCoursesByCodeAndStage(string code, string stageName)
         {
-            return db.Courses.Where(c => c.Code == code && c.StageID == stage);
+            // get Id for Stage
+            // Search by Course code and  StageID
+            Stage s = db.Stages.FirstOrDefault(stage => stage.Name == stageName);
+
+            var CoursesTeacher = from crs in db.Courses
+                                 join teach in db.Teach on crs.Id equals teach.CourseId
+                                 join teachers in db.Users on teach.TeacherID equals teachers.Id
+                                 where crs.Code == code && crs.StageID == s.ID
+
+                                 select new
+                                 {
+                                     crs,
+                                     teachers.UserName
+                                 };
+
+
+            List<CourseTeacherDTO> crsTeachers = crsTeachers = new List<CourseTeacherDTO>();
+
+            CourseTeacherDTO crsTeacherdto;
+
+
+            foreach (var item in CoursesTeacher)
+            {
+                crsTeacherdto = new CourseTeacherDTO();
+
+                crsTeacherdto.Course = item.crs;
+                crsTeacherdto.TeacherName = item.UserName;
+
+                crsTeachers.Add(crsTeacherdto);
+            }
+
+
+            return crsTeachers;
+
         }
 
-    }
 
+    }
 }

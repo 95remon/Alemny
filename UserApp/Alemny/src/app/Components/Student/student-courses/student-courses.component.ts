@@ -26,7 +26,7 @@ export class StudentCoursesComponent implements OnInit {
     console.log(courseCode)
 
 
-    this.router.navigate([`/allcourse/courseCode/${s.Level}`]);
+    this.router.navigate([`/allcourse/${courseCode}/${s.Level}`]);
 
 
 
